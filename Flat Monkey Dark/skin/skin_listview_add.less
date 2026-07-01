@@ -82,6 +82,7 @@
 .lvItem[data-selected], div:focus .lvItem[data-selected], .lvItem[data-selected], div:focus .lvItem[data-selected] .lvInlineIcon  {
     color: @textColor;
     fill: @textColor;
+    background-color: fade(@materialColor, 28%); /* Flat Monkey Dark: accent-tinted list selection */
 
     &[data-hover] {
 		background-color: if(@darkTheme, screen(@selectedColor, @hoverBgColor), @contrastColor);
