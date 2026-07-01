@@ -3,6 +3,14 @@
 All notable changes to this project are documented here.
 This project adheres to three-digit Semantic Versioning (vX.Y.Z).
 
+## v1.0.3 — 2026-07-02
+
+### Fixed
+- **Waveform** was drawn at 50% opacity by the base skin, washing the accent out — it
+  now shows at full strength, matching the picked accent.
+- **Selection text** is now forced (via `!important`, covering every child element) so
+  rating stars and the now-playing list text also flip to readable auto-contrast text.
+
 ## v1.0.2 — 2026-07-02
 
 ### Fixed

@@ -157,6 +157,13 @@
 
 @clickAreaUpDelta: 4px; // moving the seekbar click area slightly behind the edge (for better seeking experience)
 
+/* Flat Monkey Dark: the played waveform (.seekBarBefore) is @playerHighlight at 50%
+   opacity in the base skin, which washes the accent out. Show it at full strength so
+   it matches the picked accent colour (keep the disabled state dimmed). */
+.waveform .slider.horizontal .seekBarBefore:not([data-disabled]) {
+    opacity: 1 !important;
+}
+
 [data-id='player-seekbar'] {
     margin-bottom: -@thumbHeight;
     & .seekBarOuter  {

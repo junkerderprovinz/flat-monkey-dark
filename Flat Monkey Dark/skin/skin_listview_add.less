@@ -206,22 +206,19 @@
 
 @popupBgColor: @baseColor;
 
-/* Flat Monkey Dark: keep text, labels and rating stars readable on the solid
-   accent selection, in both focus states (labels carry their own colour, so the
-   row-level colour above does not reach them - target them directly). */
-.lvItem[data-selected], .lvItem[data-selected] label,
-div:focus .lvItem[data-selected], div:focus .lvItem[data-selected] label {
-    color: @onAccentColor;
-    fill: @onAccentColor;
+/* Flat Monkey Dark: force ALL text and icons in a selected row to the auto-contrast
+   colour, regardless of which element (label/div/span) carries the colour, in both
+   focus states. !important + descendant (*) beats the base per-cell colours (rating
+   stars, now-playing list labels, etc.). */
+.lvItem[data-selected], .lvItem[data-selected] *,
+div:focus .lvItem[data-selected], div:focus .lvItem[data-selected] * {
+    color: @onAccentColor !important;
+    fill: @onAccentColor !important;
 }
-.lvItem[data-selected] .ratingStar,
-div:focus .lvItem[data-selected] .ratingStar {
-    fill: @onAccentColor;
-}
-/* Re-assert the main navigation tree: it keeps its subtle accent text on its own
-   (non-accent) background, so it must NOT get @onAccentColor. */
+/* Re-assert the main navigation tree LAST so it keeps its subtle accent text on its
+   own (non-accent) background and does NOT get @onAccentColor. */
 [data-control-class=MediaTree] .lvItem[data-selected],
-[data-control-class=MediaTree] .lvItem[data-selected] label {
+[data-control-class=MediaTree] .lvItem[data-selected] * {
     color: @accentText !important;
     fill: @accentText !important;
     background-color: inherit;
