@@ -15,6 +15,7 @@
 @accentColor: @materialColor; //if((@darkTheme), @accentColorLight, @accentColorDark);
 @accentText: if((@darkTheme), @accentColorLight, @accentColorDark);
 @textColor: if((@darkTheme), #f4f4f4, #191919);
+@onAccentColor: contrast(@materialColor, #161616, #f4f4f4); // dark text on light accents, light text on dark accents (auto)
 
 @baseFontSize: 13px; // given by guidelines ( https://material.io/guidelines/style/typography.html#typography-styles )
 //@baseIconSize: round(@baseFontSize * 1.846); // given by guidelines ( https://material.io/guidelines/style/icons.html#icons-system-icons )

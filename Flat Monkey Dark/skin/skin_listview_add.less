@@ -80,12 +80,12 @@
 
 /* Selected listview item */
 .lvItem[data-selected], div:focus .lvItem[data-selected], .lvItem[data-selected], div:focus .lvItem[data-selected] .lvInlineIcon  {
-    color: @textColor;
-    fill: @textColor;
-    background-color: fade(@materialColor, 40%); /* Flat Monkey Dark: accent-tinted list selection */
+    color: @onAccentColor;
+    fill: @onAccentColor;
+    background-color: @materialColor; /* Flat Monkey Dark: solid accent selection, auto-contrast text */
 
     &[data-hover] {
-		background-color: fade(@materialColor, 40%); /* keep selection the accent colour on hover too (no grey flash) */
+		background-color: @materialColor; /* keep selection the solid accent on hover too */
 	}
     
 	.clickable:hover {
@@ -93,7 +93,7 @@
 	}
     
     & .showWhenItemSelected {
-        fill: @textColor;
+        fill: @onAccentColor;
     }
 }
 
@@ -112,7 +112,7 @@
 }
 
 .lvItem[data-selected] {
-	fill: @textColor; /* A temporary tweak, should be better designed once the hover button stabilize */
+	fill: @onAccentColor; /* A temporary tweak, should be better designed once the hover button stabilize */
 }
 
 /* Main tree has slightly different selection - less prominent */

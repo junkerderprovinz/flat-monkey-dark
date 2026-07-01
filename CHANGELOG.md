@@ -3,6 +3,15 @@
 All notable changes to this project are documented here.
 This project adheres to three-digit Semantic Versioning (vX.Y.Z).
 
+## v1.0.1 — 2026-07-02
+
+### Changed
+- Selected track/file rows now use the **full** accent colour (was a darker tint), so
+  the highlight matches the colour you picked.
+- **Auto-contrast text**: text and icons on accent surfaces (selection, buttons) switch
+  to dark on light accents and light on dark accents, via LESS `contrast()` — no more
+  unreadable text on bright accents like `#FFE000`.
+
 ## v1.0.0 — 2026-07-02
 
 ### Added
