@@ -1,0 +1,67 @@
+.tabs[data-mainTabs] {
+    background-color: @highlightColor;
+	color: @invertedColor;
+	fill: @invertedColor;
+}
+
+@tabsBorderSize: 2px;
+
+.tabs[data-mainTabs] .tabsHeaders {
+    background-color: @windowsBackground;
+    border-bottom: if(@darkTheme, inherit, @tabsBorderSize solid @materialColor);
+    
+    height: 100%;
+    align-items: stretch;
+    .fill;
+    .flex;
+}
+
+.tabs[data-mainTabs] .tabsHeader {
+    &[data-selected] {
+       background-color: @windowsBackground;
+       color: @invertedColor;
+       fill: @invertedColor;
+       border-bottom: @tabsBorderSize solid @accentColor;
+    }
+}
+
+.tabsHeader[data-selected] {
+    border-bottom: @tabsBorderSize solid @highlightColor;
+    color: @textColor;
+}
+
+.tabs[data-mainTabs] .tabsHeader:hover, .tabs[data-mainTabs] .tabsHeader:hover[data-selected] {
+    background: @windowsBackground;
+    opacity: 1;
+}
+
+.tabs_container {
+    background-color: @materialColor;
+}
+
+.switcher .tabsHeader {
+    padding: @units0_4;
+    margin-top: @units0_2;
+}
+
+.switcher .tabsHeader {
+    border: 1px solid fade(@invertedColor, 50%);
+}
+
+.switcher .tabsHeader[data-selected] {
+    border: 2px solid @materialColor;
+}
+
+.switcher .tabsHeader:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.switcher .tabsHeader:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.tabs:hover {
+    cursor: pointer;
+}

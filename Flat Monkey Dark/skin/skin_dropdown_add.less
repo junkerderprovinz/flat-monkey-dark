@@ -1,0 +1,84 @@
+@mixColor: lighten(@highlightBgColor, 30%);
+@mixPercent: 75%;
+.dropdownitem[data-focused],
+.dropdownitem[data-selected] {
+    color: @invertedColor;
+    fill: @invertedColor;
+}
+
+.dropdownitem.lvItem:not([data-selected]) {
+    background-color: mix(@controlColor, @mixColor, @mixPercent);
+    &[data-hover]:not([data-disabled]) {
+        background-color: mix(@hoverBgColor, @mixColor, @mixPercent);
+    }
+}
+
+.dropdownList {    
+    border: 2px solid @borderColor;
+    border-top-style: none;
+    &.positionAbove {
+        border-top-style: solid;
+        border-bottom-width: 1px;
+    };
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .26); // this doesn't take effect, because dropdownlist is window, TODO: borderless window shadow is needed (#14168 - item 5)
+}
+
+.dropdownitem.lvItem[data-even]:not([data-selected]) {
+    background-color: mix(@secondaryColor, @mixColor, @mixPercent);
+    &[data-hover]:not([data-disabled]) {
+        background-color: mix(@hoverBg2Color, @mixColor, @mixPercent);
+    }
+}
+
+input[type="text"], input[type="password"]  {
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+}
+
+.es-edit,
+.es-select {
+    border: 1px solid @borderColor;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+}
+
+.es-close {    
+    right: @units1_2;
+}
+
+.es-select svg {
+    opacity: @baseIconOpacity;
+    margin-top: 1px; // move svg to border line
+}
+
+.searchBox {
+    border: 0px;
+    border-radius: 2px;    
+    fill: @textColor;
+    background-color: @secondaryColor;
+    height: @units1_9;
+}
+.searchBox .es-edit,
+.searchBox .es-select {    
+    border: 0px; 
+}
+.searchBox .es-select {   
+    width: 0px;
+}
+.searchBox .es-close { 
+    fill: @textColor;
+    right: 0px;
+}
+
+.es-select, .flex > .es-select {
+    &:hover:not([data-disabled]) {
+		fill: inherit;
+        cursor: pointer;
+	}
+}
+
+.editable-select > input[data-readonly]:hover:not([data-disabled]) {
+    cursor: pointer;
+}

@@ -1,0 +1,206 @@
+@lvItemHeight: @fontLineSize + round(@fontSize*0.85); // 13+11px --> line height should be 24px for 13px font, see https://material.io/guidelines/style/typography.html#typography-line-height
+@lvItemPadding: 0px; // needs to be zero as we have 24px icon in the tree and line height should be 24px too as noted above
+@lvItemPaddingCol: @units0_25;
+
+@gridItemMargin: 2px;
+@gridItemPadding: 2px;
+
+/* for the "cards" style uncomment this:
+.griditem .gridItemInner {    
+    box-shadow: 0 0 @gridItemMargin rgba(0,0,0,.4);
+} 
+*/
+
+.griditem[data-hover]:not(.smallItem) .imageSquare, .griditem[data-selected]:not(.smallItem) .imageSquare {    
+    box-shadow: 0px 0px 6px 2px if(@darkTheme, black, rgba(0,0,0,.8)); // the MD card effect
+    background-color: lighten(@selectedColor, 5%);
+}
+
+.imageItem[data-hover]:not([data-selected]):not(.smallItem) , .gridItemSquare[data-hover]:not([data-selected])  {
+    background-color: inherit !important;    
+    background: inherit !important;
+}
+
+@gridItemHeight: round(@gridItemSize + 2*@fontLineSize + 2*@lvItemPaddingCol); // one line taller to have the extra space like in GPM > Home grid
+@gridItemHeight1Line: round(@gridItemSize + 2*@fontLineSize + 2*@lvItemPaddingCol); // for 1 line only (one line taller to have the extra space like in GPM > Home grid)
+@gridItemHeight2Line: round(@gridItemSize + 2.5*@fontLineSize + 2*@lvItemPaddingCol); // for 2 lines only
+@gridItemHeight3Line: round(@gridItemSize + 3.5*@fontLineSize + 2*@lvItemPaddingCol); // for 3 lines only
+
+.griditem .imageSquare {
+	position: absolute;	
+    top: 4px;
+    left: 4px;
+	height: @gridItemSize - 4px - @gridItemMargin;
+	width: @gridItemSize - 4px - @gridItemMargin;
+	border-width: 0px;
+}
+
+.griditem .imageInfo {
+	position: absolute;
+    top: @gridItemSize + @lvItemPaddingCol + 2px;
+    width: @gridItemSize - @gridItemMargin;
+    left: 0;
+}
+
+.lvHeaderSortLabel {
+    margin-right: -@lvItemPaddingCol;
+    margin-top: -@lvItemPaddingCol;
+};
+
+.lvItem {
+    padding-left: @lvItemPaddingCol;
+    padding-right: @lvItemPaddingCol;
+};
+
+.lvItem .rowitem {
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    border: 1px solid @dividerColor;
+}
+
+.lvItem .lvInlineIcon{
+    width: @lvItemHeight - @units0_8;
+    height: @lvItemHeight - @units0_8;
+    padding: @units0_4;
+}
+
+/* Alternate colors for listview lines */
+.lvItem[data-even]:not([data-selected]) {
+	background-color: inherit;
+
+	.transparentBackground &[data-hover], &[data-hover] {
+		background-color: @hoverBg2Color;
+	}
+    
+    .transparentBackground & {
+        background-color: transparent;
+    }
+}
+
+/* Selected listview item */
+.lvItem[data-selected], div:focus .lvItem[data-selected], .lvItem[data-selected], div:focus .lvItem[data-selected] .lvInlineIcon  {
+    color: @textColor;
+    fill: @textColor;
+
+    &[data-hover] {
+		background-color: if(@darkTheme, screen(@selectedColor, @hoverBgColor), @contrastColor);
+	}
+    
+	.clickable:hover {
+		color: @hoverColor;
+	}
+    
+    & .showWhenItemSelected {
+        fill: @textColor;
+    }
+}
+
+.lvItem[data-dropTarget] {
+	background-color: if(@darkTheme, inherit, inherit)!important;
+}
+
+/*.lvItem.itemNowPlaying[data-selected], .lvItem.itemNowPlaying[data-selected] label, .lvItem[data-selected] .ratingStar, 
+.lvItem[data-selected] .itemNowPlaying, .lvItem[data-selected] .itemNowPlaying label {
+    color: @accentColor;
+    fill: @accentColor;
+}*/
+
+.lvItem[data-selected] .ratingCanvas[data-hover] .ratingStar, .lvItem.itemNowPlaying[data-selected] .ratingStar, .lvItem[data-selected].itemNowPlaying .ratingStar {
+    fill: mix(@invertedColor, @warningColor, 90%);
+}
+
+.lvItem[data-selected] {
+	fill: @textColor; /* A temporary tweak, should be better designed once the hover button stabilize */
+}
+
+/* Main tree has slightly different selection - less prominent */
+[data-control-class=MediaTree] .lvItem[data-selected] {
+    color: @accentText !important;
+    fill: @accentText !important;
+    background-color: inherit;
+
+    &[data-hover] {
+        //color: @textColor !important;
+        //fill: @textColor !important;
+        background-color: @hoverBgColor;
+    }
+}
+
+.lvHeader {
+    border-radius: 7px;
+}
+
+.lvHeaderItem {
+    border: 0px none;
+    border-left: @borderWidth @borderStyle if(@darkTheme, @tertiaryColor, @borderColor);
+    padding-left: @lvItemPaddingCol;
+    padding-right: @lvItemPaddingCol;
+}
+.lvHeader:hover > .lvHeaderItems.resizeable > .lvHeaderItem {
+    border-left: @borderWidth @borderStyle if(@darkTheme, @secondaryColor, @contrastColor);
+}
+.lvHeader:hover > .lvHeaderItems.resizeable > .lvHeaderFillRest {
+    border-left: @borderWidth @borderStyle if(@darkTheme, @secondaryColor, @contrastColor);
+}
+.lvColumnItem {
+    border: 0px none;
+    border-left: @borderWidth solid transparent;
+    padding-left: @lvItemPaddingCol;
+    padding-right: @lvItemPaddingCol;
+}
+
+.lvColumnItem[data-right-aligned] {
+    padding-left: @lvItemPaddingCol + @horizontalResizeSize + @lvItemPadding; //#17598
+}
+
+.nplist div[data-first-col] > .lvHeaderItemContent {
+    margin-left: @fontLineSize + @units0_15 + 2*@lvItemPaddingCol; // should be the width from .lvHeaderSingleItem .toolbutton + lvHeaderSingleItem left+right padding
+}
+.nplist div[data-first-col] {
+    min-width: @fontLineSize + @units0_15 + 2*@lvItemPaddingCol + @units1_0 !important;
+}
+
+
+.tracklistGrid .griditem > div {
+    padding-top: 0;
+}
+
+.rowHeight1line > div, .rowHeight2line > div {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.itemNowPlaying, .itemNowPlaying label {
+    font-weight: bold;
+    color: @accentText;
+    fill: @accentText;
+}
+
+.itemNowPlaying[data-hover], .itemNowPlaying label[data-hover] {
+    color: @accentText;
+    fill: @accentText;
+    background: @hoverBgColor;
+}
+
+// styling popups
+:root { // CSS variables used for styling popups
+    --lvPopup-BClr-Hover: if(@darkTheme, lighten(@popupBgColor, 5%), darken(@popupBgColor, 5%));
+    --lvPopup-BClr-Select: if(@darkTheme, lighten(@popupBgColor, 10%), darken(@popupBgColor, 10%));
+    --lvPopup-BClr-Hover-Select: if(@darkTheme, lighten(@popupBgColor, 15%), darken(@popupBgColor, 15%));
+}
+.lvPopup .toolbutton:hover:not([data-disabled]),
+.lvPopup .toolbuttonbase:hover:not([data-disabled]),
+.lvPopup .toolbuttonbase:hover:not([data-disabled]) label,
+.lvPopup .toolbuttonbase:hover .ratingStar {
+    background-color: inherit;
+
+}
+
+.lvPopup .lvItem[data-hover]:not([data-disabled]):not(.itemNowPlaying) .lvInlineIcon .toolbutton:not([data-disabled]):hover,
+.lvPopup .lvItem[data-hover]:not([data-disabled])[data-selected]:not(.itemNowPlaying) .lvInlineIcon .toolbutton:not([data-disabled]):hover {
+    background-color: transparent;
+    fill: var(--lvPopup-Clr-Text);
+}
+
+@popupBgColor: @baseColor;

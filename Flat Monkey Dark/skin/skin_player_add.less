@@ -1,0 +1,211 @@
+[data-id='player-volumebar'] {    
+    height: @units0_8;
+    width: @units8_0;
+
+    & .seekBarThumb {
+        border: @thumbBorderSize solid @playerVolume;
+    }
+
+    & .seekBarThumb:hover, & .seekBarThumb:active {
+        border: @thumbBorderSize solid @playerVolume !important;
+	opacity: 0.8;
+    }
+
+    & .seekBarBefore  {
+        background-color: @playerVolume;
+    }
+
+    .seekBar {
+        background-color: @playerVolume;
+        opacity: 0.38;
+    }
+}
+
+.playerSmallButton {
+    width: @units2_5;
+    height: @units2_5;
+}
+
+.playerBigButton {
+    width: @units2_5;
+    height: @units2_5;
+}
+
+.playerLargeButton {
+    width: @units5_0;
+    height: @units5_0;
+}
+
+[data-id='player-ltime'] {
+    position: absolute;
+    left: @units0_3;
+}
+
+[data-id='player-rtime'] {
+    position: absolute;
+    right: @units0_3;
+}
+
+[data-id='td_player-ltime'] {
+    padding-top: 0;
+    padding-left: 0;
+}
+
+[data-id='player-vis-cont'] {
+    margin-right: @units0_3;
+    margin-left: @units0_6;
+}
+
+[data-id='player-vis-subcont'] {
+    position: relative;
+    width: @units4_0;
+    height: @units1_5;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-top: @units0_25;
+    padding-bottom: @units0_25;
+}
+
+[data-id='player-vis'] {
+    position: relative;
+    opacity: 1;
+    height: @units1_5;
+    width: @units4_0;
+}
+
+[data-id='player'], [data-id='player'] .ratingStar {
+	background-color: @playerColor;
+	color: @playerForeground;
+	fill: @playerForeground;
+}
+
+[data-id='player'] .ratingCanvas[data-unknown] .ratingStar[data-emptystar] svg path:nth-child(1) {
+    stroke: @invertedColor;
+}
+
+/*[data-id='player'] .seekbar {
+    background-color: @playerColor;
+}*/
+
+[data-id='player-seekbar'] {
+    & .seekBarThumb {
+        border: @thumbBorderSize solid @playerVolume;
+    }
+
+    & .seekBarThumb:hover, & .seekBarThumb:active {
+        border: @thumbBorderSize solid @playerVolume !important;
+	opacity: 0.8;
+    }
+
+    & .seekBarBefore  {
+        background-color: @playerVolume;
+    }
+
+    .seekBar {
+        background-color: @playerVolume;
+        opacity: 0.38;
+    }
+}
+
+[data-id='player'] .ratingCanvas[data-hover] .ratingStar {
+    fill: @playerHighlight;
+}
+
+[data-id='player'] {    
+    z-index: 200;
+    min-height: 80;
+}
+
+[data-id='player'] .ticksOuter .tick {
+    background-color: @invertedSecondaryColor;
+}
+
+.playerButton {
+    &:not([data-checked]).checkable {
+        opacity: if(@darkTheme, 0.3, 0.2);
+        fill: if(@darkTheme, white, black);
+        color: if(@darkTheme, white, black);
+        &:hover:not([data-disabled]) {
+            opacity: 0.8;
+        }
+    }
+    &:hover:not([data-disabled]), &:hover:not([data-disabled]) label, &:hover .ratingStar {
+        color: @baseColor;
+        background-color: @playerColor;
+    }
+}
+.playerMiniButton {
+    &:hover:not([data-disabled]), &:hover svg, &:hover .ratingStar {
+        fill: if(@darkTheme, white, black);
+        color: if(@darkTheme, white, black);
+		background-color: transparent;
+    }
+}
+
+[data-id='player'] .progressBar .label {
+    color: @baseColor;
+}
+
+.videoContainer {
+    border: 4px solid black;
+}
+
+.videoPlayerOffset {
+    background-color: @playerColor;
+    height: 0.5em;
+}
+
+@clickAreaUpDelta: 4px; // moving the seekbar click area slightly behind the edge (for better seeking experience)
+
+[data-id='player-seekbar'] {
+    margin-bottom: -@thumbHeight;
+    & .seekBarOuter  {
+        top: -@clickAreaUpDelta;
+    }
+    
+    & .seekBarThumb {
+        top: -5px+@clickAreaUpDelta;
+    }
+
+    & .seekBar {
+        top: @clickAreaUpDelta;
+    }
+
+    & .seekBarBefore {
+        top: @clickAreaUpDelta;
+        margin-left: -6px;
+    }
+}
+
+/*.seekBarBefore {
+    background-color: @playerHighlight !important;
+}*/
+
+/*.seekBarThumb {
+    border: @thumbBorderSize solid @playerHighlight;
+}*/
+
+[data-id='player-row'] .playerSubPanel {
+    width: 1;
+    min-width: min-content;
+}
+
+[data-id='player-title'] {
+    display: -webkit-inline-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: @defaultMargin;
+}
+
+@media (max-width: 1024px) {
+    [data-id='player-row'] .playerButton {
+        padding-left: round(0.25*@toolButtonPadding);
+        padding-right: round(0.25*@toolButtonPadding);
+    }
+    [data-id='player-vis-cont'] {
+        margin-right: @units0_125;
+        margin-left: @units0_3;
+    }    
+}

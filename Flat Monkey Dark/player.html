@@ -1,0 +1,57 @@
+<!-- Player -->
+<div data-id="player" data-control-class="Player">
+    <div data-id="player-seekbar" class="stretchWidth" data-control-class="Slider" data-init-params="{orientation: 'horizontal', invert: false, min: 0, max: 0, speechName: 'seek bar', speechUnit: 'seconds'}" data-player-control="seek" data-optional="{group: 40, order: 10}"></div>
+    <div class="flex column">
+        <div data-id="player-waveform" class="stretchWidth" data-control-class="Waveform" data-player-control="waveform" data-optional="{group: 40, order: 20}" style="display: none"></div>
+        <div data-id="player-row" class="fill flex row">
+            <div class="flex row playerSubPanel" style="flex: 10 10 auto;">
+                <label data-id="player-ltime" class="smallText paddingTop" style="min-width: 4em" data-player-control="time"></label>
+                <div data-id="player-vis-cont" class="flex column no-cpu">
+                    <div data-id="player-vis-subcont" data-optional="{group: 20, order: 30, title: 'Visualizer'}">
+                        <div data-id="player-vis" data-control-class="Visualizer" data-player-control="visualizer"></div>
+                    </div>
+                </div>
+                <div class="verticalCenter dynamic">
+                    <label data-id="player-title" class="textWrap" data-player-control="trackSummary" data-optional="{group: 20, order: 10}"></label>
+                </div>
+                <div class="dynamic flex column" style="z-index: -1"></div>
+                <div data-id="player-rating" data-control-class="Rating" data-init-params="{starWidth: '1.72em', starMargin: '0.15em'}" data-player-control="rating" data-optional="{group: 20, order: 20, title:'Rating'}" style="display: none"></div>    
+            </div>
+            <div class="dynamic fill flex flexcenter column" style="flex: 0 0 auto">
+                <div data-id="playerLeftButtons" class="playerButtons fill flex row static verticalCenter center">
+                    <div data-id="player-prev" class="playerButton playerSmallButton" data-aria-label="Previous file" data-icon="player_prev" data-player-control="previous" data-optional="{group: 10, order: 10}">
+                    </div>
+                    <div data-id="player-play" class="playerButton playerLargeButton" data-aria-label="Play" data-icon="player_play" data-player-control="play">
+                    </div>
+                    <div data-id="player-pause" class="playerButton playerLargeButton" data-aria-label="Pause" data-icon="player_pause" data-player-control="pause">
+                    </div>
+                    <div data-id="player-stop" class="playerButton playerBigButton" data-aria-label="Stop" data-icon="player_stop" data-player-control="stop" data-optional="{group: 10, order: 20}">
+                    </div>
+                    <div data-id="player-next" class="playerButton playerSmallButton" data-aria-label="Next file" data-icon="player_next" data-player-control="next" data-optional="{group: 10, order: 30}">
+                    </div>
+                </div>
+            </div>
+            <div class="flex row playerSubPanel" style="flex: 10 10 auto;">
+                <div class="dynamic flex column" style="z-index: -1"></div>
+                <div class="flex row">
+                    <div data-id="playerRightButtons" class="flex row static verticalCenter alignRight">
+                        <div data-id="player-repeat" class="playerButton playerSmallButton checkable" data-aria-label="Repeat" data-icon="repeatOne" data-player-control="repeat" data-optional="{group: 30, order: 10}">
+                        </div>
+                        <div data-id="player-shuffle" class="playerButton playerSmallButton checkable" data-aria-label="Shuffle" data-icon="shuffle" data-player-control="shuffle" data-optional="{group: 30, order: 20}">
+                        </div>
+                        <div data-id="player-equalizer" class="playerButton playerSmallButton checkable" data-aria-label="Equalizer" data-icon="equalizer" data-player-control="equalizer" data-optional="{group: 30, order: 30}">
+                        </div>
+                        <div data-id="player-speed" class="playerButton playerSmallButton checkable" data-aria-label="Speed" data-icon="speed" data-player-control="speed" data-optional="{group: 30, order: 35}" style="display: none">
+                        </div>
+                        <div data-id="player-playto" class="playerButton playerSmallButton checkable" data-icon="cast" data-player-control="playTo" data-init-params="{noAddClasses: true}" data-control-class="MenuButton" data-optional="{group: 30, order: 40}">
+                        </div>
+                        <div data-id="player-autodj" class="playerButton playerSmallButton checkable" data-aria-label="Auto-DJ" data-icon="autoDJ" data-player-control="autoDJ" data-optional="{group: 30, order: 50}" style="display: none">
+                        </div>
+                        <div data-tip="Volume bar" class="paddingSides" data-control-class="Slider" data-init-params="{orientation: 'horizontal', invert: false, min: 0, max:100, tickPlacement: 'none', tickInterval: 50, wheelStep: 5, speechName: 'volume', speechUnit: 'percent'}" data-id="player-volumebar" data-player-control="volume"></div>
+                    </div>
+                </div>
+            </div>
+            <label data-id="player-rtime" class="paddingTop smallText top" data-player-control="remainingTime" data-optional="{group: 20, order: 20}"></label>
+        </div>
+    </div>
+</div>

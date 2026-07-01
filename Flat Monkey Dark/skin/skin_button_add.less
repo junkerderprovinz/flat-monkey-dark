@@ -1,0 +1,99 @@
+//  https://material.io/guidelines/components/buttons.html
+
+@buttonShadow: none; //0 0 8px rgba(0,0,0,.4); 
+@toolButtonSize: @baseIconSize;
+
+.button:not([data-no-button]) {
+    background: @materialColor;
+    color: @buttonTextColor;
+    font-size: @units1_0;
+    border-radius: 5px;
+    border: 0px;
+    box-shadow: @buttonShadow;
+}
+
+.button[data-disabled]:not([data-no-button]) {
+    color: @disabledColor;
+    background: desaturate(if((@darkTheme), @secondaryColor, @materialColor), 100%);
+}
+
+.button:hover:not([data-disabled]):not([data-no-button]) {
+    cursor: pointer
+}
+
+body:not(.inactive) .button:hover:not([data-disabled]):not([data-no-button])[data-default] {
+    background: @materialColor;
+    color: if((@darkTheme), inherit, @baseColor);
+}
+
+.button:hover:not([data-disabled]):not([data-default]), 
+.button:not([data-disabled]):not([data-default]),
+body.inactive .button:not([data-disabled])[data-default],
+body.inactive .button:hover:not([data-disabled])[data-default]
+{
+    background: if(@darkTheme, @secondaryColor, @secondaryColor);
+    color: @textColor;
+}
+
+body:not(.inactive) .button:not([data-disabled])[data-default] {
+    color: if(@darkTheme, @textColor, white);
+}
+
+.buttons .button {      
+    padding: 0px 16px;
+    line-height: 32px;
+}
+
+.buttons .button:not([data-calc-width]) {
+    min-width: 64px;
+}
+
+.toolButtonSize {
+    width: @baseIconSize;
+    height: @baseIconSize;
+}
+
+.toolButtonSizeLarger {
+    width: @baseIconSize;
+    height: @baseIconSize;
+}
+
+.toolbutton[data-disabled] {
+    opacity: 0.25;
+    fill: if((@darkTheme), white, black);
+}
+
+.toolbuttonbase {    
+    &:hover:not([data-disabled]), &:hover:not([data-disabled]) label, &:hover .ratingStar {
+        color: inherit !important;
+        -webkit-filter: inherit;
+        cursor: pointer;
+    }
+}
+
+.lvHeaderSingleItem .toolbutton { // for butons inside LV single line header
+    padding: 0;
+    margin: 0;
+    .toolButtonSize;
+}
+
+.searchBox .toolbutton {
+    &:hover {
+        fill: @textColor
+    };
+    fill: @textColor
+}
+
+.customToolbar {
+    background-color: @toolbarBackground;    
+}
+
+.mainToolbar {
+    background-color: @toolbarBackground;
+    z-index: 200;
+}
+
+.mainToolbar, .customToolbar > * {
+    color: @buttonTextColor;
+    fill: @buttonTextColor;
+}

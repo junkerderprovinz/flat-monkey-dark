@@ -1,0 +1,26 @@
+.progressBar .label {
+    color: @buttonTextColor;
+}
+
+[data-id=innerbody] .progressBar .label {
+    color: @textColor;
+}
+
+@progressBarBorderSize: 0px;
+@progressBarColor: @accentColor;
+@progressBarOpacity: 1;
+@progressBarHeight: @lvItemHeight - 4px;
+
+@materialProgressBarHeight: 4px;
+
+.progressBar .progress {    
+    top: @progressBarHeight - @materialProgressBarHeight;
+    height: @materialProgressBarHeight;    
+}
+
+.progressbar .client {  
+    top: @progressBarHeight - @materialProgressBarHeight;
+    background-color: @progressBarColor;
+    opacity: 0.4;
+    height: @materialProgressBarHeight;
+}

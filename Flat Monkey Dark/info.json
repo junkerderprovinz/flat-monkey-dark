@@ -1,0 +1,58 @@
+{
+    "title": "Flat Monkey",
+    "id": "Flat Monkey",
+    "description": "Simple yet elegant.",
+    "version": "1.0.0",
+    "type": "skin",
+    "author": "Ventis Media, Inc.",
+    "icon": "thumb.png",
+    "skin_options": [
+        {
+            "type": "radio",
+            "default": "dark",
+            "title": "Theme",
+            "options": {
+                "dark": {
+                    "title": "dark, orange",
+                    "variables": {
+                        "darkTheme": "true",
+                        "materialColor": "#fb8c00"
+                    }
+                },
+                "darkblue": {
+                    "title": "dark, blue",
+                    "variables": {
+                        "darkTheme": "true",
+                        "materialColor": "#218ce3"
+                    }
+                },
+                "lightorange": {
+                    "title": "light, orange",
+                    "variables": {
+                        "darkTheme": "false",
+                        "materialColor": "#fb8c00"
+                    }
+                },
+                "lightblue": {
+                    "title": "light, blue",
+                    "variables": {
+                        "darkTheme": "false",
+                        "materialColor": "#218ce3"
+                    }
+                }
+	        }
+        },
+        {
+
+            "type": "dropdown",
+            "title": "Size",
+            "variable": "@baseFontSize",
+            "default": "13px",
+            "options": {
+                "12px": "Small",
+                "13px": "Normal",
+                "15px": "Large"
+            }
+        }
+    ]
+}

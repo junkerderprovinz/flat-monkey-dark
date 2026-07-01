@@ -1,0 +1,17 @@
+// Slider style according to https://material.io/guidelines/components/sliders.html
+
+@sliderColorHighlight: @accentColorLight;
+@seekbarSize: 2px;
+@thumbInWidth: 0px;
+@thumbInHeight: 0px;
+@thumbColor: @sliderColorHighlight;
+@thumbHoverColor: @thumbColor;
+@thumbBorderSize: 6px;
+
+.seekBar {
+    border-radius: 0px;
+}
+
+.seekBarOuter:hover:not([data-disabled]) {
+    cursor: pointer;
+}

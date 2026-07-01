@@ -1,0 +1,17 @@
+.treeRow {
+    padding: 2px; // to have some padding between tree icons
+}
+
+@treeIconSize: @baseIconSize; // tree icon size to play with, but anything bellow 24px looks crappy
+    
+.treeRow .icon {
+    width: @treeIconSize;
+    height: @treeIconSize;
+}
+
+.icnExpand {
+    width: @treeIconSize;
+    height: @treeIconSize;
+}
+
+@treeLevelIndent: if(@darkTheme, @treeIconSize / 2, @treeIconSize);

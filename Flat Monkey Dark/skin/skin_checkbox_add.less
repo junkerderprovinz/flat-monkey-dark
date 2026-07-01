@@ -1,0 +1,135 @@
+// see https://material.io/guidelines/components/selection-controls.html#selection-controls-checkbox
+
+@checkboxBorderSize : 2px;
+@checkboxBorderColor : @iconColor;
+@checkboxSize : @units1_0 - @checkboxBorderSize;
+@checkboxSizeOuter : @checkboxSize + @checkboxBorderSize + @checkboxBorderSize;
+@checkBoxBorder: @checkboxBorderSize solid @checkboxBorderColor;
+@checkBoxBorderRadius: 2px;
+@radioBoxBorderRadius: 50%;
+
+.animCheck input[type="radio"], 
+.animCheck input[type="checkbox"] {    
+  width: @checkboxSizeOuter;
+  height: @checkboxSizeOuter;
+  border: @checkBoxBorder;   
+  opacity: 0.54;
+  &:hover:not([data-disabled]):not(.readOnly) {
+      cursor: pointer;
+  }
+}
+.animCheck input[type="checkbox"]:checked {
+	transition: none;
+}
+.animCheck input[type="checkbox"] {
+	border-radius: @checkBoxBorderRadius;
+	transition: background-color @animationTime ease-in-out;
+}
+
+.animCheck input[type="radio"] {
+     border-radius: @radioBoxBorderRadius;
+}
+
+.menuitem .animCheck input[type="checkbox"]:checked {	
+    border: 0px;    
+}
+.menuitem .animCheck {       
+   min-width: @baseIconSize;   
+}
+
+.animCheck input[type="radio"]:disabled,
+.animCheck input[type="checkbox"]:disabled {
+  width: @checkboxSizeOuter;
+  height: @checkboxSizeOuter;
+  border: @checkBoxBorder;
+  opacity: 0.26; 
+}
+
+.animCheck svg[svgchk] {
+    width: 0px;
+    height: 0px;   
+}
+
+input[type="radio"]:checked, input[type="checkbox"]:checked {
+    background: @materialColor;
+    border-color: @materialColor;
+    opacity: 1;
+}
+input[type="radio"]:checked:disabled, input[type="checkbox"]:checked:disabled {
+    background: @materialColor;
+    border-color: @materialColor;
+    opacity: 0.26;
+}
+.menuitem input[type="checkbox"]:checked {
+    background: inherit;
+    border-color: inherit;
+}
+
+input[type="radio"]:before,
+input[type="checkbox"]:before {  
+  content: "";
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  width: @checkboxSize;
+  height: @checkboxSize;
+  top: -@checkboxBorderSize;
+  left: -@checkboxBorderSize;
+  border: @checkBoxBorder;  
+}
+input[type="checkbox"]:before {
+	transition-property: transform, height, width, top, left, border-color;
+	transition-duration: @animationTime;
+	transition-timing-function: ease-in-out;
+	transition-delay: 0s;
+	border-radius: @checkBoxBorderRadius;
+	opacity: 0;
+}
+input[type="checkbox"]:checked:before {
+	transform: rotate(-45deg); // scale(0.9);
+	height: @checkboxSize/3;
+	width: @checkboxSize*0.85;
+	top: @checkboxSize*0.15;		
+	left: 0;
+	border-color: @baseColor;
+	border-top-style: none;
+	border-right-style: none;	 
+	opacity: 1;
+}
+
+input[type="radio"]:before {
+    border-radius: @radioBoxBorderRadius;
+}
+.menuitem input[type="checkbox"]:checked:before { 
+    border-color: @contrastColor;
+    height: @checkboxSize/2;
+    width: @checkboxSize;
+}
+
+input[type="radio"]:checked:before { 
+ height: @checkboxSize - 2*@checkboxBorderSize;
+ width: @checkboxSize - 2*@checkboxBorderSize;
+ top: 0.15px; // LS: should be zero here, but 0.15 is just a hack to work for various scalings (e.g. when 'Make Text Bigger' is set 125%)
+ left: 0.15px; // LS: should be zero here, but 0.15 is just a hack to work for various scalings (e.g. when 'Make Text Bigger' is set 125%)
+ border-color: @baseColor;  
+}
+
+input[type="checkbox"]:indeterminate:before { 
+  top: -@checkboxBorderSize/2;
+  height: @checkboxSize/2;
+  left: @checkboxSize * 0.11; // LS: should be 0.1 here, it is just a hack to work for various scalings (e.g. when 'Make Text Bigger' is set 125%)
+  width: @checkboxSize * 0.78; // LS: should be 0.8 here, it is just a hack to work for various scalings (e.g. when 'Make Text Bigger' is set 125%)
+  border-top-style: none;
+  border-right-style: none;
+  border-left-style: none;
+  border-radius: 0px;
+  opacity: unset;
+}
+
+input[type="checkbox"]:after {
+  content: "";
+  position: absolute;  
+  left: 0;
+  width: @checkboxSize;
+  height: @checkboxSize;
+}

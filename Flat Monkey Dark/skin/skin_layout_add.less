@@ -1,0 +1,49 @@
+.left-indent {
+    margin-left: @baseIconSize;
+}
+
+.grindEdge {
+    border-radius: 0px;
+}
+
+.flex.row > .splitter {
+	margin-right: -@defaultMargin; /* results in a transparent, but well working splitter */
+}
+
+.flex.column > .splitter {
+	margin-bottom: -@defaultMargin;
+}
+
+.fieldHeading { // field headings in Properties dialog
+    .smallText;
+}
+
+.largeText, h2 {
+    // 'Title' (medium 20sp) for English and English-like scripts : https://material.io/guidelines/style/typography.html#typography-styles
+    font-weight: 500;
+    //opacity: 0.87;    
+    font-size: 20px;
+}
+
+.hoverHighlight {   
+    cursor: pointer;
+}
+
+.baseBackgroundBitTransparent {
+    background-color: transparent;  /* Otherwise there are visible boxes around the objects */
+}
+
+.bottomFadeout {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: @headerFadeoutHeight;
+    background: -moz-linear-gradient(top,fadeout(@secondaryColor,100%) 0,@secondaryColor 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0,fadeout(@secondaryColor,100%)),color-stop(100%,@secondaryColor));
+    background: -webkit-linear-gradient(top,fadeout(@secondaryColor,100%) 0,@secondaryColor 100%);
+    background: -o-linear-gradient(top,fadeout(@secondaryColor,100%) 0,@secondaryColor 100%);
+    background: -ms-linear-gradient(top,fadeout(@secondaryColor,100%) 0,@secondaryColor 100%);
+    background: linear-gradient(top,fadeout(@secondaryColor,100%) 0,@secondaryColor 100%);
+    z-index: 1;
+}
