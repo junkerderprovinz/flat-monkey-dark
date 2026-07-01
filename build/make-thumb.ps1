@@ -22,7 +22,7 @@ $g.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::AntiAlias
 # Carbon palette
 $bg     = New-Object System.Drawing.SolidBrush (C '#161616')  # window
 $panel  = New-Object System.Drawing.SolidBrush (C '#262626')  # panels/rows
-$selRow = New-Object System.Drawing.SolidBrush (C '#574F10')  # #FFE000 @28% over #161616
+$selRow = New-Object System.Drawing.SolidBrush (C '#73670D')  # #FFE000 @40% over #161616
 $accent = New-Object System.Drawing.SolidBrush (C '#FFE000')  # accent
 
 $g.FillRectangle($bg, 0, 0, $W, $H)                 # background
