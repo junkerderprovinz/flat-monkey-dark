@@ -123,8 +123,8 @@
 .playerButton {
     &:not([data-checked]).checkable {
         opacity: if(@darkTheme, 0.3, 0.2);
-        fill: if(@darkTheme, white, black);
-        color: if(@darkTheme, white, black);
+        fill: if(@darkTheme, #f4f4f4, black);
+        color: if(@darkTheme, #f4f4f4, black);
         &:hover:not([data-disabled]) {
             opacity: 0.8;
         }
@@ -136,8 +136,8 @@
 }
 .playerMiniButton {
     &:hover:not([data-disabled]), &:hover svg, &:hover .ratingStar {
-        fill: if(@darkTheme, white, black);
-        color: if(@darkTheme, white, black);
+        fill: if(@darkTheme, #f4f4f4, black);
+        color: if(@darkTheme, #f4f4f4, black);
 		background-color: transparent;
     }
 }
@@ -147,7 +147,7 @@
 }
 
 .videoContainer {
-    border: 4px solid black;
+    border: 4px solid #393939;
 }
 
 .videoPlayerOffset {
