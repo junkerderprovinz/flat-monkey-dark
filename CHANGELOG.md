@@ -3,6 +3,13 @@
 All notable changes to this project are documented here.
 This project adheres to three-digit Semantic Versioning (vX.Y.Z).
 
+## v1.0.2 — 2026-07-02
+
+### Fixed
+- Rating stars and the now-playing list text now follow the auto-contrast rule too —
+  readable on a bright accent selection (they kept a fixed light colour before).
+- The seek **waveform** now uses the exact accent colour (was a lightened shade).
+
 ## v1.0.1 — 2026-07-02
 
 ### Changed
