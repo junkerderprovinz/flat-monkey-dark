@@ -3,10 +3,11 @@
 </a>
 
 <p align="center">
-  <a href="https://github.com/junkerderprovinz/mm-flat-monkey-dark/releases/latest"><img src="https://img.shields.io/github/v/release/junkerderprovinz/mm-flat-monkey-dark?style=for-the-badge&label=Release&color=161616" alt="Release" height="36"></a>&nbsp;
-  <a href="https://www.mediamonkey.com"><img src="https://img.shields.io/badge/MediaMonkey-5-fb8c00?style=for-the-badge" alt="MediaMonkey 5" height="36"></a>&nbsp;
-  <img src="https://img.shields.io/badge/Theme-Dark%20%C2%B7%20IBM%20Carbon-161616?style=for-the-badge" alt="Dark IBM Carbon theme" height="36">&nbsp;
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-Ventis%20Reciprocal-393939?style=for-the-badge&logo=opensourceinitiative&logoColor=white" alt="License" height="36"></a>
+  <a href="https://github.com/junkerderprovinz/mm-flat-monkey-dark/releases/latest"><img src="https://img.shields.io/github/v/release/junkerderprovinz/mm-flat-monkey-dark?style=for-the-badge&logo=github&logoColor=white&label=Release&color=1d99f3" alt="Release" height="36"></a>&nbsp;
+  <a href="https://github.com/junkerderprovinz/mm-flat-monkey-dark/releases"><img src="https://img.shields.io/github/downloads/junkerderprovinz/mm-flat-monkey-dark/total?style=for-the-badge&logo=github&logoColor=white&label=Downloads&color=2ea043" alt="Downloads" height="36"></a>&nbsp;
+  <a href="https://www.mediamonkey.com"><img src="https://img.shields.io/badge/MediaMonkey-5-fb8c00?style=for-the-badge&logoColor=white" alt="MediaMonkey 5" height="36"></a>&nbsp;
+  <img src="https://img.shields.io/badge/Theme-Dark%20%C2%B7%20IBM%20Carbon-8a3ffc?style=for-the-badge" alt="Dark IBM Carbon theme" height="36">&nbsp;
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-Ventis%20Reciprocal-eab308?style=for-the-badge&logo=opensourceinitiative&logoColor=white" alt="License" height="36"></a>
 </p>
 
 <p align="center">
