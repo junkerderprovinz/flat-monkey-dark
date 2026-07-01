@@ -1,20 +1,20 @@
 // Light theme following color consts taken from INDIGO pallete ( https://www.materialpalette.com/indigo/indigo ) - Now set in info.json
 // Dark theme:
-@baseColor: if((@darkTheme), #3b3b3b, #efefef);
+@baseColor: if((@darkTheme), #161616, #efefef);
 // orange: #fb8c00 10%, blue: #218ce3  10%, yellow: #ffb900  10%, light green: #00cc6a  25%,   rose: #ea005e  15%,   cyan: #00b7c3  15%,  violet: #b146c2   9%,  red: #ff4343  7%
 @lighten: 10%;
-@materialColor: #218ce3; //#76b9ed; // #fb8c00; // PRIMARY COLOR
+@materialColor: #FFE000; // sunflower default; overridden by the Accent color picker
 @materialVeryDarkColor: darken(@materialColor, 10%); // #76b9ed; //#c25e00; // DARK PRIMARY COLOR 
 @materialDarkColor: darken(@materialColor, 0%); // #76b9ed; //#c25e00; // DARK PRIMARY COLOR 
 @materialLightColor: lighten(@materialColor, @lighten); //#88c6f1; // #76b9ed; //#ffbd45; // LIGHT PRIMARY COLOR 
 @materialVeryLightColor: lighten(@materialColor, 1.5*@lighten); //#76b9ed; // #FFAB40;
 @accentColorDark: @materialDarkColor; //#536DFE; // ACCENT COLOR
 @accentColorLight: @materialLightColor;
-@dividerColor: #BDBDBD; // DIVIDER COLOR
+@dividerColor: #393939; // DIVIDER COLOR
 @darkTheme: true;
 @accentColor: @materialColor; //if((@darkTheme), @accentColorLight, @accentColorDark);
 @accentText: if((@darkTheme), @accentColorLight, @accentColorDark);
-@textColor: if((@darkTheme), white, #191919);
+@textColor: if((@darkTheme), #f4f4f4, #191919);
 
 @baseFontSize: 13px; // given by guidelines ( https://material.io/guidelines/style/typography.html#typography-styles )
 //@baseIconSize: round(@baseFontSize * 1.846); // given by guidelines ( https://material.io/guidelines/style/icons.html#icons-system-icons )
@@ -22,16 +22,16 @@
 // @baseIconOpacity: 0.54; // given by material-design guidelines
 @baseIconOpacity: 0.8; // given by material-design guidelines
 @borderRadius: 2px; 
-@tooltipBgColor: if((@darkTheme), #101010, white /*#f0f0f0*/);
+@tooltipBgColor: if((@darkTheme), #262626, white /*#f0f0f0*/);
 
-@playerColor: if((@darkTheme), #3b3b3b, #d7d7d7);
+@playerColor: if((@darkTheme), #161616, #d7d7d7);
 @playerForeground: @invertedColor;
 @playerHighlight: @materialLightColor; //@materialColor;
-@playerVolume: if((@darkTheme), white, black);
+@playerVolume: if((@darkTheme), #f4f4f4, black);
 @visPeaksColor: @materialColor;
 
-@secondaryColor: if((@darkTheme), #2b2b2b, #ffffff);
-@tertiaryColor: if((@darkTheme), #333333, #e7e7e7);
+@secondaryColor: if((@darkTheme), #262626, #ffffff);
+@tertiaryColor: if((@darkTheme), #393939, #e7e7e7);
 // @hotlinkColor: fadeout(@accentColor, 35%);
 @hotlinkColor: if((@darkTheme), @materialVeryLightColor, @materialVeryDarkColor);
 @warning2Color: @materialColor;
@@ -41,17 +41,17 @@
 // @hoverBgColor: #505050;
 @hoverBgColor: if((@darkTheme), rgba(255, 255, 255, 0.07), rgba(0, 0, 0, 0.07));
 @hoverBg2Color: @hoverBgColor;
-@contrastColor: #b8b8b8;
+@contrastColor: #8d8d8d;
 @errorColor: @accentColor;
-@borderColor: if((@darkTheme), @contrastColor, #d5d5d5);
-@selectedColor: if((@darkTheme), #646464, #d9d9d9);
+@borderColor: if((@darkTheme), #393939, #d5d5d5);
+@selectedColor: if((@darkTheme), #525252, #d9d9d9);
 @disabledColor: fadeout(@textColor, 35%);
 @disabledSelectedColor: desaturate(mix(@baseColor, @selectedColor, 25%), 50%);
 @headerColor: @tertiaryColor;
 @highlightColor: @materialColor; /*@warningColor;*/
 @highlightBgColor: fadeout(@accentColor, 35%);
 @invertedColor: @textColor; //white;
-@invertedSecondaryColor: #b0b0b0;
+@invertedSecondaryColor: #8d8d8d;
 @shadowColor: @hoverBgColor;
 
 @windowHeaderHeight: @baseIconSize + (2 * @toolButtonPadding);
