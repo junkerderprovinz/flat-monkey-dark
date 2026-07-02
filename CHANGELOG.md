@@ -3,6 +3,12 @@
 All notable changes to this project are documented here.
 This project adheres to three-digit Semantic Versioning (vX.Y.Z).
 
+## v1.0.12 — 2026-07-02
+
+### Changed
+- Hid the breadcrumb/path bar in the main window (experimental, on request) so the list
+  column header lines up with the now-playing header.
+
 ## v1.0.11 — 2026-07-02
 
 ### Fixed
