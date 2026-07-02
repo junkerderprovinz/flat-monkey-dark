@@ -206,20 +206,28 @@
 
 @popupBgColor: @baseColor;
 
-/* Flat Monkey Dark: labels carry their own colour, so target them (text) and the
-   rating stars (fill) DIRECTLY for readable auto-contrast on the accent selection,
-   in both focus states. NOT a `*` descendant - that filled the icon/star mask rects
-   into solid squares. The row-level color/fill above already handles inline icons. */
-.lvItem[data-selected] label, div:focus .lvItem[data-selected] label {
-    color: @onAccentColor;
+/* Flat Monkey Dark: ALL text on a selected row -> readable auto-contrast. Using
+   `color` (not `fill`) on the `*` descendant is safe - `color` never touches SVG
+   fill/masks, so NO square icons (that was `fill`). !important also beats the base
+   now-playing accent-text rule (`.lvItem.itemNowPlaying[data-selected] label`), which
+   otherwise left the currently-playing selected row yellow-on-yellow. Covers labels,
+   divs and spans, so the now-playing list and the playlist sidebar read too. */
+.lvItem[data-selected], .lvItem[data-selected] *,
+div:focus .lvItem[data-selected], div:focus .lvItem[data-selected] * {
+    color: @onAccentColor !important;
 }
-.lvItem[data-selected] .ratingStar, div:focus .lvItem[data-selected] .ratingStar {
-    fill: @onAccentColor;
+/* Rating stars on a selected row -> auto-contrast in EVERY state (normal, rating
+   hover, key-focus). fill is scoped to .ratingStar only (never `*`), so icons never
+   square. Beats the inherited hover rule that made them near-white. */
+.lvItem[data-selected] .ratingStar,
+.lvItem[data-selected] .ratingCanvas[data-hover] .ratingStar,
+.lvItem[data-selected] .ratingCanvas[data-keyfocused] .ratingStar,
+div:focus .lvItem[data-selected] .ratingStar {
+    fill: @onAccentColor !important;
 }
-/* Re-assert the main navigation tree so it keeps its subtle accent text on its own
-   (non-accent) background. */
+/* Keep the main navigation tree on its own subtle accent (dark bg, not the yellow). */
 [data-control-class=MediaTree] .lvItem[data-selected],
-[data-control-class=MediaTree] .lvItem[data-selected] label {
+[data-control-class=MediaTree] .lvItem[data-selected] * {
     color: @accentText !important;
     fill: @accentText !important;
     background-color: inherit;

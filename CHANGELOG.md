@@ -3,6 +3,15 @@
 All notable changes to this project are documented here.
 This project adheres to three-digit Semantic Versioning (vX.Y.Z).
 
+## v1.0.5 — 2026-07-02
+
+### Fixed
+- The currently-playing track and the playlist sidebar are now readable when selected —
+  every text element (not just `<label>`) flips to auto-contrast, overriding the base
+  now-playing accent-text rule.
+- Rating stars stay auto-contrast on hover / when changing a rating on a selected row
+  (they turned near-white before).
+
 ## v1.0.4 — 2026-07-02
 
 ### Fixed
