@@ -130,7 +130,6 @@
 
 .lvHeader {
     border-radius: 0px; /* Flat Monkey Dark: square list header (was 7px) */
-    margin-top: -6px; /* Flat Monkey Dark: nudge the column header up to line up with the now-playing header (calibratable) */
 }
 
 .lvHeaderItem {
@@ -226,17 +225,33 @@ div:focus .lvItem[data-selected], div:focus .lvItem[data-selected] * {
 div:focus .lvItem[data-selected] .ratingStar {
     fill: @onAccentColor !important;
 }
-/* Inline list icons (e.g. the playlist glyph in the sidebar) follow the selection.
-   Colour ONLY the glyph path (paths without fill="none"); the Material icons include a
-   full-size `<path ... fill="none">` bounding box that, filled, becomes a solid square. */
-.lvItem[data-selected] .lvInlineIcon path:not([fill='none']),
-div:focus .lvItem[data-selected] .lvInlineIcon path:not([fill='none']) {
-    fill: @onAccentColor !important;
-}
-/* Keep the main navigation tree on its own subtle accent (dark bg, not the yellow). */
+/* Navigation / playlist trees (.treeRow, incl. the MediaTree) are nav elements, not
+   content lists: keep their selection SUBTLE - the item's own dark bg + light accent
+   text/icons, NOT the bright content accent. This also removes the sidebar-icon problem
+   entirely (the light icon simply reads on the dark bg). Crucially `fill` is set on the
+   ROW, never on `*`: inherited fill tints the glyph but does NOT override the icons' own
+   `fill="none"` bounding box, so tree icons never fill into a solid square. */
 [data-control-class=MediaTree] .lvItem[data-selected],
-[data-control-class=MediaTree] .lvItem[data-selected] * {
-    color: @accentText !important;
+.lvItem.treeRow[data-selected],
+.treeRow .lvItem[data-selected] {
+    background-color: inherit !important;
     fill: @accentText !important;
-    background-color: inherit;
+}
+[data-control-class=MediaTree] .lvItem[data-selected],
+[data-control-class=MediaTree] .lvItem[data-selected] *,
+.lvItem.treeRow[data-selected],
+.lvItem.treeRow[data-selected] *,
+.treeRow .lvItem[data-selected],
+.treeRow .lvItem[data-selected] * {
+    color: @accentText !important;
+}
+/* Separate :has() rule (Chromium 105+) so an older engine dropping it does not also
+   drop the rules above. Covers the case where the selected .lvItem CONTAINS the .treeRow. */
+.lvItem[data-selected]:has(.treeRow) {
+    background-color: inherit !important;
+    fill: @accentText !important;
+}
+.lvItem[data-selected]:has(.treeRow),
+.lvItem[data-selected]:has(.treeRow) * {
+    color: @accentText !important;
 }

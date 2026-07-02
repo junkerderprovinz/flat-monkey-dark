@@ -3,6 +3,18 @@
 All notable changes to this project are documented here.
 This project adheres to three-digit Semantic Versioning (vX.Y.Z).
 
+## v1.0.9 — 2026-07-02
+
+### Changed
+- The playlist sidebar / navigation trees now use a **subtle** selection (their own dark
+  background + light accent text) instead of the bright content accent — the correct
+  treatment for navigation. This also fixes the sidebar icon: it stays a clean glyph and
+  never fills into a square, without recolouring it.
+
+### Reverted
+- The experimental list-header nudge (`margin-top`) — it had no visual effect (the header
+  isn't positioned by margin).
+
 ## v1.0.8 — 2026-07-02
 
 ### Changed
