@@ -125,3 +125,5 @@ If this skin makes your MediaMonkey nicer to look at, consider buying me a coffe
     <img src=".github/assets/button-buy-me-a-coffee.svg" alt="Buy me a coffee" width="220">
   </a>
 </p>
+
+<!-- build note: rendered check -->
