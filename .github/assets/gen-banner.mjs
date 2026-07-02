@@ -4,9 +4,8 @@
  *   MediaMonkey logo (embedded verbatim) on the left, the wordmark
  *   "Flat Monkey Dark" + a cheeky claim below.
  *
- * The wordmark uses Open Sans Bold - the skin's own bundled typeface (OFL),
- * read from the payload. The claim uses Lato (house claim font, OFL), fetched
- * at runtime from the google/fonts mirror on jsDelivr, cached in the OS temp
+ * The wordmark uses Bree Serif and the claim uses Lato (both OFL house fonts),
+ * fetched at runtime from the google/fonts mirror on jsDelivr, cached in the OS temp
  * dir, and never committed. Text is converted to SVG paths (opentype.js) so the
  * SVG is self-contained. The logo is embedded verbatim (never rebuilt).
  *
@@ -26,7 +25,6 @@ const { Resvg } = require(`${gRoot}/@resvg/resvg-js`);
 const opentype = require(`${gRoot}/opentype.js`);
 
 const __dir = dirname(fileURLToPath(import.meta.url));
-const repoRoot = join(__dir, "..", "..");
 
 // ---- content + styling -----------------------------------------------------
 const NAME = "Flat Monkey Dark";
@@ -47,9 +45,13 @@ function shapeRun(font, text, size) {
   let x = 0, prev = null;
   for (const ch of text) {
     const g = font.charToGlyph(ch);
-    if (prev) x += font.getKerningValue(prev, g) * scale;
+    if (prev) {
+      const k = font.getKerningValue(prev, g) * scale; // some fonts return NaN for pairs
+      if (Number.isFinite(k)) x += k;
+    }
     run.push({ g, x });
-    x += g.advanceWidth * scale;
+    const aw = g.advanceWidth * scale;
+    x += Number.isFinite(aw) ? aw : size * 0.5;
     prev = g;
   }
   return { run, width: x };
@@ -57,8 +59,12 @@ function shapeRun(font, text, size) {
 const runWidth = (f, t, s) => shapeRun(f, t, s).width;
 function runPathData(font, text, x, y, size) {
   let d = "";
-  for (const { g, x: gx } of shapeRun(font, text, size).run)
-    d += g.getPath(x + gx, y, size).toPathData(2);
+  for (const { g, x: gx } of shapeRun(font, text, size).run) {
+    // Integer positions: opentype.js can emit NaN path commands for some TrueType
+    // glyphs at fractional origins. Round, and skip any residual NaN defensively.
+    const pd = g.getPath(Math.round(x + gx), Math.round(y), size).toPathData(2);
+    if (!pd.includes("NaN")) d += pd;
+  }
   return d;
 }
 
@@ -75,7 +81,10 @@ async function loadRemoteFont(url, cacheName) {
   return parseFont(readFileSync(path));
 }
 
-const nameFont = parseFont(readFileSync(join(repoRoot, "Flat Monkey Dark", "skin", "fonts", "OpenSans-Bold.ttf")));
+const nameFont = await loadRemoteFont(
+  "https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/breeserif/BreeSerif-Regular.ttf",
+  "BreeSerif-Regular",
+);
 const claimFont = await loadRemoteFont(
   "https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/lato/Lato-Regular.ttf",
   "Lato-Regular",
