@@ -161,7 +161,7 @@
    opacity in the base skin, which washes the accent out. Show it at full strength so
    it matches the picked accent colour (keep the disabled state dimmed). */
 .waveform .slider.horizontal .seekBarBefore:not([data-disabled]) {
-    opacity: 1 !important;
+    opacity: 0.6 !important; /* full accent colour but keep the waveform texture visible (1.0 covered it) */
 }
 
 [data-id='player-seekbar'] {

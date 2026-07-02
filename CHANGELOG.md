@@ -3,6 +3,14 @@
 All notable changes to this project are documented here.
 This project adheres to three-digit Semantic Versioning (vX.Y.Z).
 
+## v1.0.4 — 2026-07-02
+
+### Fixed
+- Selecting a row no longer turns rating stars and inline icons into solid squares —
+  the over-broad `*` rule was replaced with targeted label/star selectors.
+- Waveform: the played portion is semi-transparent again so the waveform texture stays
+  visible (v1.0.3's full opacity covered it), still in the full accent colour.
+
 ## v1.0.3 — 2026-07-02
 
 ### Fixed
