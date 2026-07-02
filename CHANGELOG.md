@@ -3,6 +3,14 @@
 All notable changes to this project are documented here.
 This project adheres to three-digit Semantic Versioning (vX.Y.Z).
 
+## v1.0.10 — 2026-07-02
+
+### Fixed
+- Reverted the over-aggressive subtle tree selection from v1.0.9 (it removed the sidebar
+  highlight and washed the text out). The playlist sidebar is back to the normal accent
+  selection — visible highlight + readable text. Only the main navigation tree stays
+  subtle (its FlatMonkey original), and no icon is force-filled, so nothing squares.
+
 ## v1.0.9 — 2026-07-02
 
 ### Changed
