@@ -3,6 +3,13 @@
 All notable changes to this project are documented here.
 This project adheres to three-digit Semantic Versioning (vX.Y.Z).
 
+## v1.0.7 — 2026-07-02
+
+### Fixed
+- The selected playlist icon is coloured instead of turning into a solid square — the
+  fill now targets only the glyph path, skipping the Material icons' full-size
+  `fill="none"` bounding box (which is what filled into a square).
+
 ## v1.0.6 — 2026-07-02
 
 ### Fixed

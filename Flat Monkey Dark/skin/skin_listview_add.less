@@ -225,9 +225,11 @@ div:focus .lvItem[data-selected], div:focus .lvItem[data-selected] * {
 div:focus .lvItem[data-selected] .ratingStar {
     fill: @onAccentColor !important;
 }
-/* Inline list icons (e.g. the playlist glyph in the sidebar) follow the selection too.
-   Scoped to .lvInlineIcon (like .ratingStar), NOT `*`, so nothing squares. */
-.lvItem[data-selected] .lvInlineIcon, div:focus .lvItem[data-selected] .lvInlineIcon {
+/* Inline list icons (e.g. the playlist glyph in the sidebar) follow the selection.
+   Colour ONLY the glyph path (paths without fill="none"); the Material icons include a
+   full-size `<path ... fill="none">` bounding box that, filled, becomes a solid square. */
+.lvItem[data-selected] .lvInlineIcon path:not([fill='none']),
+div:focus .lvItem[data-selected] .lvInlineIcon path:not([fill='none']) {
     fill: @onAccentColor !important;
 }
 /* Keep the main navigation tree on its own subtle accent (dark bg, not the yellow). */
