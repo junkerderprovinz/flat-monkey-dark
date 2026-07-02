@@ -3,6 +3,14 @@
 All notable changes to this project are documented here.
 This project adheres to three-digit Semantic Versioning (vX.Y.Z).
 
+## v1.0.6 — 2026-07-02
+
+### Fixed
+- The selected playlist's icon now switches to auto-contrast too (it stayed light and
+  vanished on a bright accent).
+- All list/panel title bars are square now — the list header and main-view panels were
+  rounded (`7px`); buttons stay rounded.
+
 ## v1.0.5 — 2026-07-02
 
 ### Fixed

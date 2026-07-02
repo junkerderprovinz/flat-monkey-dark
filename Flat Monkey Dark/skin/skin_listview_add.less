@@ -129,7 +129,7 @@
 }
 
 .lvHeader {
-    border-radius: 7px;
+    border-radius: 0px; /* Flat Monkey Dark: square list header (was 7px) */
 }
 
 .lvHeaderItem {
@@ -223,6 +223,11 @@ div:focus .lvItem[data-selected], div:focus .lvItem[data-selected] * {
 .lvItem[data-selected] .ratingCanvas[data-hover] .ratingStar,
 .lvItem[data-selected] .ratingCanvas[data-keyfocused] .ratingStar,
 div:focus .lvItem[data-selected] .ratingStar {
+    fill: @onAccentColor !important;
+}
+/* Inline list icons (e.g. the playlist glyph in the sidebar) follow the selection too.
+   Scoped to .lvInlineIcon (like .ratingStar), NOT `*`, so nothing squares. */
+.lvItem[data-selected] .lvInlineIcon, div:focus .lvItem[data-selected] .lvInlineIcon {
     fill: @onAccentColor !important;
 }
 /* Keep the main navigation tree on its own subtle accent (dark bg, not the yellow). */
