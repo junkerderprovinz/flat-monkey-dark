@@ -84,8 +84,8 @@
     fill: @onAccentColor;
     background-color: @materialColor; /* Flat Monkey Dark: solid accent selection, auto-contrast text */
 
-    &[data-hover] {
-		background-color: @materialColor; /* keep selection the solid accent on hover too */
+    &[data-hover]:not([data-disabled]) {
+		background-color: @materialColor; /* keep selection the solid accent on hover too (0,4,0 - beats the base unfocused hover rule) */
 	}
     
 	.clickable:hover {
@@ -115,18 +115,11 @@
 	fill: @onAccentColor; /* A temporary tweak, should be better designed once the hover button stabilize */
 }
 
-/* Main tree has slightly different selection - less prominent */
-[data-control-class=MediaTree] .lvItem[data-selected] {
-    color: @accentText !important;
-    fill: @accentText !important;
-    background-color: inherit;
-
-    &[data-hover] {
-        //color: @textColor !important;
-        //fill: @textColor !important;
-        background-color: @hoverBgColor;
-    }
-}
+/* Flat Monkey Dark: FlatMonkey's original "less prominent" MediaTree exception is
+   REMOVED. Its (0,3,0) `background-color: inherit` beat the unfocused accent selection
+   (0,2,0) but lost to the focused `div:focus` rule (0,3,1) - selection appeared only
+   while the tree was focused, with force-dark text invisible on the dark row otherwise.
+   Without it, trees fall through to the uniform accent selection above (both states). */
 
 .lvHeader {
     border-radius: 0px; /* Flat Monkey Dark: square list header (was 7px) */
@@ -233,11 +226,6 @@ div:focus .lvItem[data-selected] .ratingStar {
 div:focus .lvItem[data-selected] path:not([fill='none']) {
     fill: @onAccentColor !important;
 }
-/* Main navigation tree: subtle selection (its own dark bg + light accent text/icons),
-   the FlatMonkey original. Its glyphs use @accentText so they read on the dark bg. */
-[data-control-class=MediaTree] .lvItem[data-selected],
-[data-control-class=MediaTree] .lvItem[data-selected] path:not([fill='none']) {
-    color: @accentText !important;
-    fill: @accentText !important;
-    background-color: inherit;
-}
+/* (No MediaTree exception here either - trees use the same uniform accent selection.
+   The second copy of the exception used to live here; both copies are gone so the
+   selection is identical focused and unfocused.) */

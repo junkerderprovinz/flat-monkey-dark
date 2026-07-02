@@ -3,6 +3,20 @@
 All notable changes to this project are documented here.
 This project adheres to three-digit Semantic Versioning (vX.Y.Z).
 
+## v1.0.13 — 2026-07-03
+
+### Fixed
+- **Selection no longer vanishes when a pane loses focus.** Root cause found by tracing
+  MediaMonkey's compiled CSS and control sources: the skin carried TWO copies of
+  FlatMonkey's "less prominent" MediaTree exception (`background-color: inherit`,
+  specificity 0,3,0) — it beat the unfocused accent selection (0,2,0) but lost to the
+  focused `div:focus` rule (0,3,1), so the accent bar showed only while focused, with
+  force-dark text invisible otherwise. Both copies removed: trees now use the same
+  uniform accent selection in both focus states (`data-selected` persists on blur —
+  verified in MediaMonkey's listview.ts).
+- Hover on a selected row in an unfocused pane no longer dims the accent bar
+  (hover-keep rule hardened to out-rank the base hover rule).
+
 ## v1.0.12 — 2026-07-02
 
 ### Changed
