@@ -1,10 +1,10 @@
-<a href="https://www.mediamonkey.com">
-  <img src="https://raw.githubusercontent.com/junkerderprovinz/mm-flat-monkey-dark/main/.github/assets/mm-flat-monkey-dark-banner.png" alt="Flat Monkey Dark" width="100%">
+﻿<a href="https://www.mediamonkey.com">
+  <img src="https://raw.githubusercontent.com/junkerderprovinz/flat-monkey-dark/main/.github/assets/flat-monkey-dark-banner.png" alt="Flat Monkey Dark" width="100%">
 </a>
 
 <p align="center">
-  <a href="https://github.com/junkerderprovinz/mm-flat-monkey-dark/releases/latest"><img src="https://img.shields.io/github/v/release/junkerderprovinz/mm-flat-monkey-dark?style=for-the-badge&logo=github&logoColor=white&label=Release&color=1d99f3" alt="Release" height="36"></a>&nbsp;
-  <a href="https://github.com/junkerderprovinz/mm-flat-monkey-dark/releases"><img src="https://img.shields.io/github/downloads/junkerderprovinz/mm-flat-monkey-dark/total?style=for-the-badge&logo=github&logoColor=white&label=Downloads&color=2ea043" alt="Downloads" height="36"></a>&nbsp;
+  <a href="https://github.com/junkerderprovinz/flat-monkey-dark/releases/latest"><img src="https://img.shields.io/github/v/release/junkerderprovinz/flat-monkey-dark?style=for-the-badge&logo=github&logoColor=white&label=Release&color=1d99f3" alt="Release" height="36"></a>&nbsp;
+  <a href="https://github.com/junkerderprovinz/flat-monkey-dark/releases"><img src="https://img.shields.io/github/downloads/junkerderprovinz/flat-monkey-dark/total?style=for-the-badge&logo=github&logoColor=white&label=Downloads&color=2ea043" alt="Downloads" height="36"></a>&nbsp;
   <a href="https://www.mediamonkey.com"><img src="https://img.shields.io/badge/MediaMonkey-5-fb8c00?style=for-the-badge&logoColor=white" alt="MediaMonkey 5" height="36"></a>&nbsp;
   <img src="https://img.shields.io/badge/Theme-Dark%20%C2%B7%20IBM%20Carbon-8a3ffc?style=for-the-badge" alt="Dark IBM Carbon theme" height="36">&nbsp;
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Ventis%20Reciprocal-eab308?style=for-the-badge&logo=opensourceinitiative&logoColor=white" alt="License" height="36"></a>
@@ -39,33 +39,33 @@ An unofficial dark reshell of MediaMonkey 5's <b>Flat Monkey</b> skin in the IBM
 ## 1. Overview
 
 **Flat Monkey Dark** takes MediaMonkey 5's bundled *Flat Monkey* skin and re-shells
-it in the [IBM Carbon](https://carbondesignsystem.com/) greyscale palette — the same
+it in the [IBM Carbon](https://carbondesignsystem.com/) greyscale palette â€” the same
 monochrome dark look used across the other junkerderprovinz projects. The whole UI
 is neutral grey; the single splash of colour is an accent you pick yourself.
 
 **What's included**
 
-- **Dark-only IBM Carbon shell** — window `#161616`, panels `#262626`, borders
+- **Dark-only IBM Carbon shell** â€” window `#161616`, panels `#262626`, borders
   `#393939`, selection `#525252`, text `#f4f4f4`.
 - **Free accent colour picker** in *Tools > Options > Skin* (default sunflower
   `#FFE000`), with a built-in readability guard so an unreadable choice is blocked.
-- **Accent-tinted selection** — the selected track/file row is highlighted in your
+- **Accent-tinted selection** â€” the selected track/file row is highlighted in your
   accent colour instead of grey, consistently (no grey-then-colour flicker on hover).
-- **Size option** — Small / Normal / Large.
+- **Size option** â€” Small / Normal / Large.
 
 <br>
 
 ## 2. Install
 
-1. Download `Flat Monkey Dark.mmip` from the [latest release](https://github.com/junkerderprovinz/mm-flat-monkey-dark/releases/latest).
-2. In MediaMonkey: **Tools > Add-ons > Add…** and pick the file.
+1. Download `Flat Monkey Dark.mmip` from the [latest release](https://github.com/junkerderprovinz/flat-monkey-dark/releases/latest).
+2. In MediaMonkey: **Tools > Add-ons > Addâ€¦** and pick the file.
 3. **Tools > Options > Layout / Skin** and select **Flat Monkey Dark**.
 
 <br>
 
 ## 3. Change the accent colour
 
-Open **Tools > Options > Skin > Accent color** — it's a real colour picker, so any
+Open **Tools > Options > Skin > Accent color** â€” it's a real colour picker, so any
 colour works. Handy swatches to paste in:
 
 | Colour | Hex | Colour | Hex |
@@ -85,7 +85,7 @@ hotlinks and the selected-row tint. Everything else stays Carbon grey.
 
 - Dark greys swapped for the IBM Carbon ramp; the light theme variants removed
   (dark-only).
-- The old fixed "Theme" radio (dark/light × orange/blue) replaced by a single free
+- The old fixed "Theme" radio (dark/light Ã— orange/blue) replaced by a single free
   **Accent color** picker.
 - Selected track/file rows now use an accent tint instead of grey.
 - Everything else (layout, icons, fonts, behaviour) is Flat Monkey unchanged.
@@ -96,20 +96,20 @@ hotlinks and the selected-row tint. Everything else stays Carbon grey.
 
 The skin lives in `Flat Monkey Dark/`. Helpers:
 
-- `build/package.ps1` → builds `dist/Flat Monkey Dark.mmip` (a ZIP with the payload
+- `build/package.ps1` â†’ builds `dist/Flat Monkey Dark.mmip` (a ZIP with the payload
   at the archive root and forward-slash entries, as MediaMonkey expects).
-- `build/make-thumb.ps1` → regenerates the skin thumbnail.
-- `.github/assets/gen-banner.mjs` → regenerates the README banner (Node; needs
+- `build/make-thumb.ps1` â†’ regenerates the skin thumbnail.
+- `.github/assets/gen-banner.mjs` â†’ regenerates the README banner (Node; needs
   `npm i -g @resvg/resvg-js opentype.js`).
 
 For quick testing, drop the `Flat Monkey Dark/` folder into the MediaMonkey `skins`
-directory and re-select the skin — the LESS recompiles on selection.
+directory and re-select the skin â€” the LESS recompiles on selection.
 
 <br>
 
 ## 6. Credits & licence
 
-Based on **Flat Monkey** © Ventis Media, Inc., modified under the
+Based on **Flat Monkey** Â© Ventis Media, Inc., modified under the
 [Ventis Limited Reciprocal License](LICENSE), which explicitly permits derivative
 skins. Bundled fonts: Open Sans (SIL Open Font License). The MediaMonkey name and
 logo are trademarks of Ventis Media, Inc., used here nominatively. See [NOTICE](NOTICE).

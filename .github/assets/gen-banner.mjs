@@ -1,6 +1,6 @@
-/**
+﻿/**
  * Generates the Flat Monkey Dark README banner (house banner convention):
- *   mm-flat-monkey-dark-banner.svg / .png : white 1600x500 - the original
+ *   flat-monkey-dark-banner.svg / .png : white 1600x500 - the original
  *   MediaMonkey logo (embedded verbatim) on the left, the wordmark
  *   "Flat Monkey Dark" + a cheeky claim below.
  *
@@ -138,8 +138,8 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
   <path d="${claimPath}" fill="${CLAIM_FILL}"/>
 </svg>
 `;
-writeFileSync(join(__dir, "mm-flat-monkey-dark-banner.svg"), svg);
+writeFileSync(join(__dir, "flat-monkey-dark-banner.svg"), svg);
 
 const png = new Resvg(svg, { fitTo: { mode: "width", value: W }, background: "white" }).render().asPng();
-writeFileSync(join(__dir, "mm-flat-monkey-dark-banner.png"), png);
+writeFileSync(join(__dir, "flat-monkey-dark-banner.png"), png);
 console.log(`wrote banner (name ${Math.round(L.nameW)}px, claim ${Math.round(L.claimW)}px, group ${Math.round(L.groupW)}px, nameSize ${nameSize.toFixed(1)})`);
