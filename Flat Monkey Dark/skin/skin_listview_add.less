@@ -225,13 +225,18 @@ div:focus .lvItem[data-selected], div:focus .lvItem[data-selected] * {
 div:focus .lvItem[data-selected] .ratingStar {
     fill: @onAccentColor !important;
 }
-/* Main navigation tree keeps a subtle selection (its own background + accent text) -
-   the FlatMonkey original. `fill` is on the ROW only (never `*`), so its icons' own
-   `fill="none"` bounding box is never filled into a square. The playlist sidebar falls
-   back to the normal accent selection above (visible highlight + readable @onAccentColor
-   text); its icon keeps its normal colour rather than being forced (forcing it filled the
-   icon box into a square). */
-[data-control-class=MediaTree] .lvItem[data-selected] {
+/* Icons on a selected row adapt to the accent, exactly like the text: colour the glyph
+   PATHS directly with the auto-contrast colour. `:not([fill='none'])` skips the Material
+   icons' full-size transparent bounding box, so nothing ever fills into a solid square.
+   Targeting the path directly (not the container) beats the base per-icon fill. */
+.lvItem[data-selected] path:not([fill='none']),
+div:focus .lvItem[data-selected] path:not([fill='none']) {
+    fill: @onAccentColor !important;
+}
+/* Main navigation tree: subtle selection (its own dark bg + light accent text/icons),
+   the FlatMonkey original. Its glyphs use @accentText so they read on the dark bg. */
+[data-control-class=MediaTree] .lvItem[data-selected],
+[data-control-class=MediaTree] .lvItem[data-selected] path:not([fill='none']) {
     color: @accentText !important;
     fill: @accentText !important;
     background-color: inherit;

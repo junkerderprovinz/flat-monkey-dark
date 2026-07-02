@@ -3,6 +3,13 @@
 All notable changes to this project are documented here.
 This project adheres to three-digit Semantic Versioning (vX.Y.Z).
 
+## v1.0.11 — 2026-07-02
+
+### Fixed
+- Selected-row icons now adapt to the accent (dark on light accents, light on dark), just
+  like the text — the glyph paths are coloured directly, skipping the icons' transparent
+  bounding box so they never fill into a square.
+
 ## v1.0.10 — 2026-07-02
 
 ### Fixed
