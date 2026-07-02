@@ -3,6 +3,12 @@
 All notable changes to this project are documented here.
 This project adheres to three-digit Semantic Versioning (vX.Y.Z).
 
+## v1.0.8 — 2026-07-02
+
+### Changed
+- Nudged the list column header up (`margin-top: -6px`) to line up with the now-playing
+  panel header (experimental / calibratable).
+
 ## v1.0.7 — 2026-07-02
 
 ### Fixed
