@@ -157,11 +157,12 @@
 
 @clickAreaUpDelta: 4px; // moving the seekbar click area slightly behind the edge (for better seeking experience)
 
-/* Flat Monkey Dark: the played waveform (.seekBarBefore) is @playerHighlight at 50%
-   opacity in the base skin, which washes the accent out. Show it at full strength so
-   it matches the picked accent colour (keep the disabled state dimmed). */
+/* Flat Monkey Dark: the base skin shows the played waveform (.seekBarBefore) at 50%
+   opacity, which washes the accent out. 0.6 brings the picked accent through while
+   the waveform texture stays visible, which 1.0 would cover. The disabled state
+   stays dimmed. */
 .waveform .slider.horizontal .seekBarBefore:not([data-disabled]) {
-    opacity: 0.6 !important; /* full accent colour but keep the waveform texture visible (1.0 covered it) */
+    opacity: 0.6 !important;
 }
 
 [data-id='player-seekbar'] {

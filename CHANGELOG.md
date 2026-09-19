@@ -3,6 +3,11 @@
 All notable changes to this project are documented here.
 This project adheres to three-digit Semantic Versioning (vX.Y.Z).
 
+## Unreleased
+
+### Changed
+- Tidied the code comments and log messages.
+
 ## v1.1.0 — 2026-07-03
 
 Consolidated stable release. Supersedes the iterative v1.0.0–v1.0.13 development

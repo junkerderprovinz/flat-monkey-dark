@@ -85,7 +85,7 @@
     background-color: @materialColor; /* Flat Monkey Dark: solid accent selection, auto-contrast text */
 
     &[data-hover]:not([data-disabled]) {
-		background-color: @materialColor; /* keep selection the solid accent on hover too (0,4,0 - beats the base unfocused hover rule) */
+		background-color: @materialColor; /* keep selection the solid accent on hover too; (0,4,0) beats the base unfocused hover rule */
 	}
     
 	.clickable:hover {
@@ -115,14 +115,13 @@
 	fill: @onAccentColor; /* A temporary tweak, should be better designed once the hover button stabilize */
 }
 
-/* Flat Monkey Dark: FlatMonkey's original "less prominent" MediaTree exception is
-   REMOVED. Its (0,3,0) `background-color: inherit` beat the unfocused accent selection
-   (0,2,0) but lost to the focused `div:focus` rule (0,3,1) - selection appeared only
-   while the tree was focused, with force-dark text invisible on the dark row otherwise.
-   Without it, trees fall through to the uniform accent selection above (both states). */
+/* Flat Monkey Dark: trees use the accent selection above too, without Flat Monkey's
+   "less prominent" MediaTree exception. Its (0,3,0) `background-color: inherit` beats
+   the unfocused selection (0,2,0) but loses to the focused `div:focus` rule (0,3,1),
+   so selection would show only while the tree has focus. */
 
 .lvHeader {
-    border-radius: 0px; /* Flat Monkey Dark: square list header (was 7px) */
+    border-radius: 0px; /* Flat Monkey Dark: square list header */
 }
 
 .lvHeaderItem {
@@ -199,33 +198,30 @@
 
 @popupBgColor: @baseColor;
 
-/* Flat Monkey Dark: ALL text on a selected row -> readable auto-contrast. Using
-   `color` (not `fill`) on the `*` descendant is safe - `color` never touches SVG
-   fill/masks, so NO square icons (that was `fill`). !important also beats the base
-   now-playing accent-text rule (`.lvItem.itemNowPlaying[data-selected] label`), which
-   otherwise left the currently-playing selected row yellow-on-yellow. Covers labels,
-   divs and spans, so the now-playing list and the playlist sidebar read too. */
+/* Flat Monkey Dark: all text on a selected row gets the auto-contrast colour,
+   labels, divs and spans alike, so the now-playing list and the playlist sidebar
+   read too. `color` on the `*` descendant is safe because it never touches SVG
+   fill or masks, where `fill` would draw square icons. !important also beats the
+   base now-playing rule (`.lvItem.itemNowPlaying[data-selected] label`), which
+   would leave the playing selected row yellow on yellow. */
 .lvItem[data-selected], .lvItem[data-selected] *,
 div:focus .lvItem[data-selected], div:focus .lvItem[data-selected] * {
     color: @onAccentColor !important;
 }
-/* Rating stars on a selected row -> auto-contrast in EVERY state (normal, rating
-   hover, key-focus). fill is scoped to .ratingStar only (never `*`), so icons never
-   square. Beats the inherited hover rule that made them near-white. */
+/* Rating stars on a selected row get the auto-contrast colour in every state
+   (normal, rating hover, key focus), beating the inherited near-white hover rule.
+   fill is scoped to .ratingStar rather than `*`, so icons do not turn square. */
 .lvItem[data-selected] .ratingStar,
 .lvItem[data-selected] .ratingCanvas[data-hover] .ratingStar,
 .lvItem[data-selected] .ratingCanvas[data-keyfocused] .ratingStar,
 div:focus .lvItem[data-selected] .ratingStar {
     fill: @onAccentColor !important;
 }
-/* Icons on a selected row adapt to the accent, exactly like the text: colour the glyph
-   PATHS directly with the auto-contrast colour. `:not([fill='none'])` skips the Material
-   icons' full-size transparent bounding box, so nothing ever fills into a solid square.
-   Targeting the path directly (not the container) beats the base per-icon fill. */
+/* Icons on a selected row follow the accent like the text: their paths get the
+   auto-contrast colour, which beats the base per-icon fill on the container.
+   `:not([fill='none'])` skips the Material icons' transparent bounding box, which
+   would otherwise fill into a solid square. */
 .lvItem[data-selected] path:not([fill='none']),
 div:focus .lvItem[data-selected] path:not([fill='none']) {
     fill: @onAccentColor !important;
 }
-/* (No MediaTree exception here either - trees use the same uniform accent selection.
-   The second copy of the exception used to live here; both copies are gone so the
-   selection is identical focused and unfocused.) */

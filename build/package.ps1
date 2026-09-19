@@ -1,11 +1,8 @@
-# Packages the skin payload into an installable MediaMonkey .mmip.
-# The .mmip is a ZIP with the skin files at the archive root (no wrapping folder)
-# and FORWARD-SLASH separators, matching the original "Flat Monkey.zip".
-#
-# NOTE: On Windows PowerShell 5.1 (.NET Framework) both Compress-Archive and
-# ZipFile.CreateFromDirectory emit BACKSLASH separators for nested entries, which
-# MediaMonkey does not read correctly. We therefore build the archive entry by
-# entry with explicit '/'-separated names.
+# Packages the skin payload into an installable MediaMonkey .mmip: a ZIP with the
+# skin files at the archive root and forward-slash separators, like the original
+# "Flat Monkey.zip". On Windows PowerShell 5.1 both Compress-Archive and
+# ZipFile.CreateFromDirectory write backslashes for nested entries, which
+# MediaMonkey does not read, so the archive is built entry by entry.
 $ErrorActionPreference = "Stop"
 Add-Type -AssemblyName System.IO.Compression
 Add-Type -AssemblyName System.IO.Compression.FileSystem

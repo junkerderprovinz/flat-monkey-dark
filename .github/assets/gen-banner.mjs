@@ -1,13 +1,11 @@
 ﻿/**
- * Generates the Flat Monkey Dark README banner (house banner convention):
- *   flat-monkey-dark-banner.svg / .png : white 1600x500 - the original
- *   MediaMonkey logo (embedded verbatim) on the left, the wordmark
- *   "Flat Monkey Dark" + a cheeky claim below.
+ * Generates the Flat Monkey Dark README banners, a light and a dark 1600x500
+ * pair: the original MediaMonkey logo on the left, embedded verbatim and only
+ * recoloured per theme, with the wordmark and the claim beside it.
  *
- * The wordmark uses Bree Serif and the claim uses Lato (both OFL house fonts),
- * fetched at runtime from the google/fonts mirror on jsDelivr, cached in the OS temp
- * dir, and never committed. Text is converted to SVG paths (opentype.js) so the
- * SVG is self-contained. The logo is embedded verbatim (never rebuilt).
+ * The wordmark uses Bree Serif and the claim Lato (both OFL), fetched from the
+ * google/fonts mirror on jsDelivr into the OS temp dir and not committed. Text
+ * is converted to SVG paths with opentype.js so the SVG is self-contained.
  *
  * Deps: `npm i -g @resvg/resvg-js opentype.js`.
  * Run:  node .github/assets/gen-banner.mjs
@@ -26,11 +24,8 @@ const opentype = require(`${gRoot}/opentype.js`);
 
 const __dir = dirname(fileURLToPath(import.meta.url));
 
-// ---- content + styling -----------------------------------------------------
 const NAME = "Flat Monkey Dark";
-const CLAIM = "Play it. Tag it. In the dark."; // cheeky, no "w" (Lato "w" opentype.js trap)
-// Banner standard: theme-flip pair, name = foreground colour, claim = grey,
-// left-anchored, claim pulled close to the name (logo stays the accent colour).
+const CLAIM = "Play it. Tag it. In the dark."; // no "w", which opentype.js draws wrong in Lato
 const LEFT_MARGIN = 165;
 const THEMES = [
   // logo = a dark accent on the white banner (readable), the #FFE000 sunflower
@@ -42,10 +37,9 @@ const W = 1600, H = 500;
 const LOGO_VB_W = 245.76, LOGO_VB_H = 225.43; // mediamonkey.svg viewBox
 let nameSize = 120, claimSize = 40, gap = 56, LH = 367;
 const maxGroupW = W - 245; // logo left-anchored at x=165, so keep >=80px right margin (165+80)
-// ---------------------------------------------------------------------------
 
-// Shape glyph-by-glyph (charToGlyph + manual pair kerning) - bypasses the GSUB
-// feature engine entirely (no ccmp/NaN surprises) with no visual loss for Latin.
+// Shaping glyph by glyph with manual pair kerning bypasses the GSUB feature engine
+// and its ccmp NaN surprises, at no visual cost for Latin.
 function shapeRun(font, text, size) {
   const scale = size / font.unitsPerEm;
   const run = [];
@@ -67,8 +61,8 @@ const runWidth = (f, t, s) => shapeRun(f, t, s).width;
 function runPathData(font, text, x, y, size) {
   let d = "";
   for (const { g, x: gx } of shapeRun(font, text, size).run) {
-    // Integer positions: opentype.js can emit NaN path commands for some TrueType
-    // glyphs at fractional origins. Round, and skip any residual NaN defensively.
+    // Integer positions, because opentype.js can emit NaN path commands for some
+    // TrueType glyphs at fractional origins; any NaN left is skipped.
     const pd = g.getPath(Math.round(x + gx), Math.round(y), size).toPathData(2);
     if (!pd.includes("NaN")) d += pd;
   }
@@ -97,7 +91,7 @@ const claimFont = await loadRemoteFont(
   "Lato-Regular",
 );
 
-// ---- auto-fit the group to the banner width --------------------------------
+// The logo and text group shrinks to fit the banner width.
 function layout() {
   const LW = LH * (LOGO_VB_W / LOGO_VB_H);
   const nameW = runWidth(nameFont, NAME, nameSize);
