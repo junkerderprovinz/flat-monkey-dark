@@ -52,19 +52,19 @@ If it has earned a place on your server or computer, toss a coin to your knight:
 ## 1. Overview
 
 **Flat Monkey Dark** takes MediaMonkey 5's bundled *Flat Monkey* skin and re-shells
-it in the [IBM Carbon](https://carbondesignsystem.com/) greyscale palette — the same
+it in the [IBM Carbon](https://carbondesignsystem.com/) greyscale palette, the same
 monochrome dark look used across the other junkerderprovinz projects. The whole UI
 is neutral grey; the single splash of colour is an accent you pick yourself.
 
 **What's included**
 
-- **Dark-only IBM Carbon shell** — window `#161616`, panels `#262626`, borders
+- **Dark-only IBM Carbon shell:** window `#161616`, panels `#262626`, borders
   `#393939`, selection `#525252`, text `#f4f4f4`.
 - **Free accent colour picker** in *Tools > Options > Skin* (default sunflower
   `#FFE000`), with a built-in readability guard so an unreadable choice is blocked.
-- **Uniform accent selection** — the selected row is highlighted in your accent
+- **Uniform accent selection:** the selected row is highlighted in your accent
   colour in every pane, in both focus states, with auto-contrast text and icons.
-- **Size option** — Small / Normal / Large.
+- **Size option:** Small / Normal / Large.
 
 <br>
 
@@ -74,7 +74,7 @@ is neutral grey; the single splash of colour is an accent you pick yourself.
   <img src=".github/assets/screenshots/flat-monkey-dark-sunflower.png" alt="Flat Monkey Dark with the default sunflower accent" width="92%">
 </p>
 
-<p align="center"><sub>The default sunflower accent <code>#FFE000</code> — selection, now-playing, waveform and stars all follow it.</sub></p>
+<p align="center"><sub>The default sunflower accent <code>#FFE000</code>. Selection, now-playing, waveform and stars all follow it.</sub></p>
 
 <br>
 
@@ -112,7 +112,7 @@ is neutral grey; the single splash of colour is an accent you pick yourself.
 
 ## 4. Change the accent colour
 
-Open **Tools > Options > Skin > Accent color** — it's a real colour picker, so any
+Open **Tools > Options > Skin > Accent color**. It's a real colour picker, so any
 colour works. Handy swatches to paste in:
 
 | Colour | Hex | Colour | Hex |
@@ -152,8 +152,8 @@ The skin lives in `Flat Monkey Dark/`. Helpers:
   `npm i -g @resvg/resvg-js opentype.js`).
 
 For quick testing, drop the `Flat Monkey Dark/` folder into the MediaMonkey `skins`
-directory and re-select the skin — the LESS recompiles on selection. Note that
-MediaMonkey caches the compiled skin: delete
+directory and re-select the skin. The LESS recompiles on selection. MediaMonkey caches
+the compiled skin, so delete
 `%APPDATA%\MediaMonkey5\precompiledLess_Flat Monkey Dark_Desktop.css` and restart
 MediaMonkey to pick up LESS changes.
 
