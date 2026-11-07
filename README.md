@@ -15,6 +15,26 @@
 An unofficial dark reshell of MediaMonkey 5's <b>Flat Monkey</b> skin in the IBM Carbon greyscale palette, with a freely selectable accent colour in the MediaMonkey GUI. Monochrome everywhere, one splash of colour where you want it.
 </p>
 
+<p align="center"><sub>Unofficial derivative. Not affiliated with, endorsed by, or supported by Ventis Media, Inc. See <a href="NOTICE">NOTICE</a> and <a href="LICENSE">LICENSE</a>.</sub></p>
+
+<br>
+
+<p><a id="table-of-contents" href="#table-of-contents"><picture><source media="(prefers-color-scheme: dark)" srcset=".github/assets/sections/table-of-contents-dark.svg"><img src=".github/assets/sections/table-of-contents.svg" alt="Table of Contents" width="100%"></picture></a></p>
+
+1. [Support](#1-support)
+2. [Overview](#2-overview)
+3. [Screenshots](#3-screenshots)
+4. [Install](#4-install)
+5. [Change the accent colour](#5-change-the-accent-colour)
+6. [What changed vs Flat Monkey](#6-what-changed-vs-flat-monkey)
+7. [Build from source](#7-build-from-source)
+8. [Credits & licence](#8-credits--licence)
+9. [How AI is used here](#9-how-ai-is-used-here)
+
+<br>
+
+<p><a id="1-support" href="#1-support"><picture><source media="(prefers-color-scheme: dark)" srcset=".github/assets/sections/1-support-dark.svg"><img src=".github/assets/sections/1-support.svg" alt="1. Support" width="100%"></picture></a></p>
+
 <p align="center">
 A one-knight job: I build it, keep it running, work through the issues and add what people ask for, until nothing is missing. It is free, with no accounts, no telemetry, no ads and no paid tier. No asterisk anywhere. Nothing readable ever leaves your own walls. Forged on evenings and weekends, with heart and stubbornness.
 </p>
@@ -31,25 +51,9 @@ If it has earned a place on your server or computer, toss a coin to your knight:
   <a href="https://junkerderprovinz.github.io/junkerderprovinz/"><img src="https://raw.githubusercontent.com/junkerderprovinz/junkerderprovinz/main/donate/buttons/give.svg#svgView(viewBox(1683.8,0,841.9,245.3))" alt="Donate with crypto" width="160" height="46.62"></a>
 </p>
 
-<p align="center"><sub>Unofficial derivative. Not affiliated with, endorsed by, or supported by Ventis Media, Inc. See <a href="NOTICE">NOTICE</a> and <a href="LICENSE">LICENSE</a>.</sub></p>
-
 <br>
 
-## Table of Contents
-
-1. [Overview](#1-overview)
-2. [Screenshots](#2-screenshots)
-3. [Install](#3-install)
-4. [Change the accent colour](#4-change-the-accent-colour)
-5. [What changed vs Flat Monkey](#5-what-changed-vs-flat-monkey)
-6. [Build from source](#6-build-from-source)
-7. [Credits & licence](#7-credits--licence)
-8. [How AI is used here](#8-how-ai-is-used-here)
-9. [Support this project](#9-support-this-project)
-
-<br>
-
-## 1. Overview
+<p><a id="2-overview" href="#2-overview"><picture><source media="(prefers-color-scheme: dark)" srcset=".github/assets/sections/2-overview-dark.svg"><img src=".github/assets/sections/2-overview.svg" alt="2. Overview" width="100%"></picture></a></p>
 
 **Flat Monkey Dark** takes MediaMonkey 5's bundled *Flat Monkey* skin and re-shells
 it in the [IBM Carbon](https://carbondesignsystem.com/) greyscale palette, the same
@@ -68,7 +72,7 @@ is neutral grey; the single splash of colour is an accent you pick yourself.
 
 <br>
 
-## 2. Screenshots
+<p><a id="3-screenshots" href="#3-screenshots"><picture><source media="(prefers-color-scheme: dark)" srcset=".github/assets/sections/3-screenshots-dark.svg"><img src=".github/assets/sections/3-screenshots.svg" alt="3. Screenshots" width="100%"></picture></a></p>
 
 <p align="center">
   <img src=".github/assets/screenshots/flat-monkey-dark-sunflower.png" alt="Flat Monkey Dark with the default sunflower accent" width="92%">
@@ -102,7 +106,7 @@ is neutral grey; the single splash of colour is an accent you pick yourself.
 
 <br>
 
-## 3. Install
+<p><a id="4-install" href="#4-install"><picture><source media="(prefers-color-scheme: dark)" srcset=".github/assets/sections/4-install-dark.svg"><img src=".github/assets/sections/4-install.svg" alt="4. Install" width="100%"></picture></a></p>
 
 1. Download `Flat Monkey Dark.mmip` from the [latest release](https://github.com/junkerderprovinz/flat-monkey-dark/releases/latest).
 2. In MediaMonkey: **Tools > Add-ons > Add…** and pick the file.
@@ -110,7 +114,7 @@ is neutral grey; the single splash of colour is an accent you pick yourself.
 
 <br>
 
-## 4. Change the accent colour
+<p><a id="5-change-the-accent-colour" href="#5-change-the-accent-colour"><picture><source media="(prefers-color-scheme: dark)" srcset=".github/assets/sections/5-change-the-accent-colour-dark.svg"><img src=".github/assets/sections/5-change-the-accent-colour.svg" alt="5. Change the accent colour" width="100%"></picture></a></p>
 
 Open **Tools > Options > Skin > Accent color**. It's a real colour picker, so any
 colour works. Handy swatches to paste in:
@@ -128,7 +132,7 @@ hotlinks and the selected rows. Everything else stays Carbon grey.
 
 <br>
 
-## 5. What changed vs Flat Monkey
+<p><a id="6-what-changed-vs-flat-monkey" href="#6-what-changed-vs-flat-monkey"><picture><source media="(prefers-color-scheme: dark)" srcset=".github/assets/sections/6-what-changed-vs-flat-monkey-dark.svg"><img src=".github/assets/sections/6-what-changed-vs-flat-monkey.svg" alt="6. What changed vs Flat Monkey" width="100%"></picture></a></p>
 
 - Dark greys swapped for the IBM Carbon ramp; the light theme variants removed
   (dark-only).
@@ -141,7 +145,7 @@ hotlinks and the selected rows. Everything else stays Carbon grey.
 
 <br>
 
-## 6. Build from source
+<p><a id="7-build-from-source" href="#7-build-from-source"><picture><source media="(prefers-color-scheme: dark)" srcset=".github/assets/sections/7-build-from-source-dark.svg"><img src=".github/assets/sections/7-build-from-source.svg" alt="7. Build from source" width="100%"></picture></a></p>
 
 The skin lives in `Flat Monkey Dark/`. Helpers:
 
@@ -159,7 +163,7 @@ MediaMonkey to pick up LESS changes.
 
 <br>
 
-## 7. Credits & licence
+<p><a id="8-credits--licence" href="#8-credits--licence"><picture><source media="(prefers-color-scheme: dark)" srcset=".github/assets/sections/8-credits--licence-dark.svg"><img src=".github/assets/sections/8-credits--licence.svg" alt="8. Credits & licence" width="100%"></picture></a></p>
 
 Based on **Flat Monkey** © Ventis Media, Inc., modified under the
 [Ventis Limited Reciprocal License](LICENSE), which explicitly permits derivative
@@ -168,7 +172,7 @@ logo are trademarks of Ventis Media, Inc., used here nominatively. See [NOTICE](
 
 <br>
 
-## 8. How AI is used here
+<p><a id="9-how-ai-is-used-here" href="#9-how-ai-is-used-here"><picture><source media="(prefers-color-scheme: dark)" srcset=".github/assets/sections/9-how-ai-is-used-here-dark.svg"><img src=".github/assets/sections/9-how-ai-is-used-here.svg" alt="9. How AI is used here" width="100%"></picture></a></p>
 
 One knight builds this, and AI is one of the tools I work with, the same way I work with an editor or a compiler. It helps me write code and documentation and it checks my work, and that saves me a good many evenings. It does not make the decisions, though. I read and understand everything before it ships, and if something here breaks, that is on me and not on the tool.
 
@@ -176,18 +180,4 @@ You do not have to take my word for it. The code is open and every release note 
 
 <br>
 
-## 9. Support this project
-
 Questions, bugs, ideas or feature requests? Please [open a GitHub issue](https://github.com/junkerderprovinz/flat-monkey-dark/issues).
-
-A one-knight job: I build it, keep it running, work through the issues and add what people ask for, until nothing is missing. It is free, with no accounts, no telemetry, no ads and no paid tier. No asterisk anywhere. Nothing readable ever leaves your own walls. Forged on evenings and weekends, with heart and stubbornness.
-
-If it has earned a place on your server or computer, toss a coin to your knight: it helps cover the costs and keeps the project alive. It also makes this knight's heart beat a little faster. Three ways below, whichever suits you.
-
-<p align="center">
-  <a href="https://buymeacoffee.com/junkerderprovinz"><img src="https://raw.githubusercontent.com/junkerderprovinz/junkerderprovinz/main/donate/buttons/give.svg#svgView(viewBox(0,0,841.9,245.3))" alt="Buy me a coffee" width="160" height="46.62"></a>
-  &nbsp;
-  <a href="https://www.paypal.com/donate/?hosted_button_id=76FVV52TKXTUS"><img src="https://raw.githubusercontent.com/junkerderprovinz/junkerderprovinz/main/donate/buttons/give.svg#svgView(viewBox(841.9,0,841.9,245.3))" alt="PayPal" width="160" height="46.62"></a>
-  &nbsp;
-  <a href="https://junkerderprovinz.github.io/junkerderprovinz/"><img src="https://raw.githubusercontent.com/junkerderprovinz/junkerderprovinz/main/donate/buttons/give.svg#svgView(viewBox(1683.8,0,841.9,245.3))" alt="Donate with crypto" width="160" height="46.62"></a>
-</p>
