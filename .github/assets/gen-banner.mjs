@@ -3,14 +3,15 @@
  * pair: the original MediaMonkey logo on the left, embedded verbatim and only
  * recoloured per theme, with the wordmark and the claim beside it.
  *
- * The wordmark uses Bree Serif and the claim Lato (both OFL), fetched from the
- * google/fonts mirror on jsDelivr into the OS temp dir and not committed. Text
- * is converted to SVG paths with opentype.js so the SVG is self-contained.
+ * The wordmark uses Bree Serif Light and the claim Bree Light, the house
+ * typeface, read as TTF from HOUSE_FONTS (default %LOCALAPPDATA%\halleluja-fonts)
+ * and not committed. Text is converted to SVG paths with opentype.js so the SVG
+ * is self-contained.
  *
  * Deps: `npm i -g @resvg/resvg-js opentype.js`.
  * Run:  node .github/assets/gen-banner.mjs
  */
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { tmpdir } from "node:os";
@@ -25,7 +26,7 @@ const opentype = require(`${gRoot}/opentype.js`);
 const __dir = dirname(fileURLToPath(import.meta.url));
 
 const NAME = "Flat Monkey Dark";
-const CLAIM = "Play it. Tag it. In the dark."; // no "w", which opentype.js draws wrong in Lato
+const CLAIM = "Play it. Tag it. In the dark.";
 const LEFT_MARGIN = 165;
 const THEMES = [
   // logo = a dark accent on the white banner (readable), the #FFE000 sunflower
@@ -69,27 +70,14 @@ function runPathData(font, text, x, y, size) {
   return d;
 }
 
-function parseFont(buf) {
+// The house typeface is licensed, so it is read from a local folder and never committed.
+const fonts = process.env.HOUSE_FONTS ?? join(process.env.LOCALAPPDATA ?? tmpdir(), "halleluja-fonts");
+function loadFont(file) {
+  const buf = readFileSync(join(fonts, file));
   return opentype.parse(buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength));
 }
-async function loadRemoteFont(url, cacheName) {
-  const path = join(tmpdir(), `mmfmd-${cacheName}.ttf`);
-  if (!existsSync(path)) {
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`font fetch ${cacheName}: ${res.status}`);
-    writeFileSync(path, Buffer.from(await res.arrayBuffer()));
-  }
-  return parseFont(readFileSync(path));
-}
-
-const nameFont = await loadRemoteFont(
-  "https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/breeserif/BreeSerif-Regular.ttf",
-  "BreeSerif-Regular",
-);
-const claimFont = await loadRemoteFont(
-  "https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/lato/Lato-Regular.ttf",
-  "Lato-Regular",
-);
+const nameFont = loadFont("bree-serif-light.ttf");
+const claimFont = loadFont("bree-light.ttf");
 
 // The logo and text group shrinks to fit the banner width.
 function layout() {
