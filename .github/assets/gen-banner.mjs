@@ -3,7 +3,7 @@
  * pair: the original MediaMonkey logo on the left, embedded verbatim and only
  * recoloured per theme, with the wordmark and the claim beside it.
  *
- * The wordmark uses Bree Serif Light and the claim Bree Light, the house
+ * The wordmark uses Bree Serif Regular and the claim Bree Light, the house
  * typeface, read as TTF from HOUSE_FONTS (default %LOCALAPPDATA%\halleluja-fonts)
  * and not committed. Text is converted to SVG paths with opentype.js so the SVG
  * is self-contained.
@@ -76,7 +76,7 @@ function loadFont(file) {
   const buf = readFileSync(join(fonts, file));
   return opentype.parse(buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength));
 }
-const nameFont = loadFont("bree-serif-light.ttf");
+const nameFont = loadFont("bree-serif-regular.ttf");
 const claimFont = loadFont("bree-light.ttf");
 
 // The logo and text group shrinks to fit the banner width.
